@@ -212,7 +212,7 @@ select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csv
 .cta-dark .layer { position: absolute; inset: 0; z-index: -1; }
 
 /* ---------- footer ---------- */
-.footer { border-top: 1px solid var(--border); padding: 40px 0 48px; font-size: 14px; color: var(--muted-fg); }
+.footer { border-top: 1px solid var(--border); padding: 40px 0 96px; font-size: 14px; color: var(--muted-fg); }
 .footer-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
 .footer-inner .brand { color: var(--fg); }
 .footer-links { margin-left: auto; display: flex; gap: 22px; }

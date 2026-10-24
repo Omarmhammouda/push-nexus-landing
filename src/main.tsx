@@ -10,6 +10,7 @@ import Index from './pages/Index'
 import OptionA from './pages/OptionA'
 import OptionB from './pages/OptionB'
 import OptionC from './pages/OptionC'
+import { StageBar } from './components/StageBar'
 
 function ScrollTop() {
   const { pathname } = useLocation()
@@ -40,6 +41,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter>
       <ScrollTop />
+      <StageBar />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/a" element={<OptionA />} />
