@@ -9,6 +9,11 @@ Three landing page directions for Push Nexus, built with React + Vite. They shar
 | `#/c` | **Audience & Access-Led** | Glass access form floating over a ShaderGradient orb, brands/agencies tabs, metric definitions, animated pacing card. |
 | `#/` | Index | Picks between the three. |
 
+## Staging
+
+Live review copy: https://hubcitystudio.com (Cloudflare Worker `pushnexus-preview`, marked noindex).
+Redeploy with `npm run build && npx wrangler deploy`.
+
 ## Run it
 
 ```bash

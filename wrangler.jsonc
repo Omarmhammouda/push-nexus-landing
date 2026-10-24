@@ -1,0 +1,15 @@
+{
+  // Static staging deploy on Cloudflare Workers: `npm run build && npx wrangler deploy`
+  "name": "pushnexus-preview",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    { "pattern": "hubcitystudio.com", "custom_domain": true },
+    { "pattern": "www.hubcitystudio.com", "custom_domain": true }
+  ]
+}
