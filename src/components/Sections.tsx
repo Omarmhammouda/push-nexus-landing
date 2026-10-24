@@ -3,6 +3,7 @@ import { useState, type FormEvent } from 'react'
 import { Glass } from './Glass'
 import { Icon, type IconName } from './Icons'
 import { Reveal, TrustNote } from './Chrome'
+import { CountUp } from './CountUp'
 import { closing, hero, how, method, numbers, platforms, product, security, views, viewsHead, who, type ViewKey } from '../content'
 
 const shot = (k: ViewKey) => `./views/${k}.jpg`
@@ -114,7 +115,9 @@ export function Numbers({ alt = true }: { alt?: boolean }) {
               <span className="kicker" style={{ color: 'var(--muted-fg)' }}>
                 {m.name}
               </span>
-              <span className="big">{m.value}</span>
+              <span className="big">
+                <CountUp value={m.value} duration={1600} delay={i * 120} />
+              </span>
               <span className="formula">{m.formula}</span>
               <p className="body">{m.body}</p>
             </Reveal>
@@ -141,7 +144,9 @@ export function NumbersTable() {
             <div className="def-row" key={m.name}>
               <span className="def-name">
                 {m.name}
-                <span className="mono accent">{m.value}</span>
+                <span className="mono accent">
+                  <CountUp value={m.value} />
+                </span>
               </span>
               <span className="mono">{m.formula}</span>
               <span className="body">{m.body}</span>

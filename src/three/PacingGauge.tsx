@@ -13,7 +13,7 @@ const PROGRESS = 0.503
 const EXPECTED = 14 / 31
 const START = Math.PI / 2 // 12 o'clock
 
-function Gauge() {
+function Gauge({ play }: { play: boolean }) {
   const arc = useRef<THREE.Mesh>(null)
   const grow = useRef(0)
   const reduced = usePrefersReducedMotion()
@@ -39,8 +39,8 @@ function Gauge() {
 
   const done = useRef(false)
   useFrame((_, delta) => {
-    if (done.current) return
-    grow.current = reduced ? 1 : Math.min(1, grow.current + delta * 0.6)
+    if (done.current || !play) return
+    grow.current = reduced ? 1 : Math.min(1, grow.current + delta * 0.55)
     if (grow.current >= 1) done.current = true
     const e = 1 - Math.pow(1 - grow.current, 3)
     const m = arc.current
@@ -74,7 +74,7 @@ function Gauge() {
   )
 }
 
-export default function PacingGauge() {
+export default function PacingGauge({ play = true }: { play?: boolean }) {
   const reduced = usePrefersReducedMotion()
   return (
     <div className="canvas-fill">
@@ -84,7 +84,7 @@ export default function PacingGauge() {
         <directionalLight position={[-3, -2, 2]} intensity={0.5} color="#ffb454" />
         <Float speed={reduced ? 0 : 1.4} rotationIntensity={reduced ? 0 : 0.35} floatIntensity={reduced ? 0 : 0.4}>
           <group rotation={[-0.32, 0.38, 0]}>
-            <Gauge />
+            <Gauge play={play} />
           </group>
         </Float>
       </Canvas>

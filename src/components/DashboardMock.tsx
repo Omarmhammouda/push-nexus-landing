@@ -1,4 +1,5 @@
 import { Mark } from './Logo'
+import { CountUp, useInView } from './CountUp'
 import './mock.css'
 
 const kpis = [
@@ -34,8 +35,9 @@ type Props = {
 
 export function DashboardMock({ variant = 'full' }: Props) {
   const compact = variant === 'compact'
+  const [ref, play] = useInView<HTMLDivElement>(0.25)
   return (
-    <div className={`mock ${compact ? 'mock--compact' : ''}`} role="img" aria-label="Push Nexus dashboard on a demo store: MER 4.82x, sales $412,380, pacing ahead of target">
+    <div ref={ref} className={`mock ${compact ? 'mock--compact' : ''} ${play ? 'is-live' : ''}`} role="img" aria-label="Push Nexus dashboard on a demo store: MER 4.82x, sales $412,380, pacing ahead of target">
       <div className="mock-bar">
         <span className="mock-brand">
           <Mark size={18} />
@@ -57,11 +59,15 @@ export function DashboardMock({ variant = 'full' }: Props) {
       <div className="mock-body">
         <div className="mock-main">
           <div className="kpis">
-            {kpis.map((k) => (
+            {kpis.map((k, i) => (
               <div className="kpi" key={k.label}>
                 <div className="label">{k.label}</div>
-                <div className="value mono">{k.value}</div>
-                <div className="delta up">{k.delta}</div>
+                <div className="value mono">
+                  <CountUp value={k.value} play={play} delay={i * 90} />
+                </div>
+                <div className="delta up">
+                  <CountUp value={k.delta} play={play} delay={300 + i * 90} duration={1100} />
+                </div>
               </div>
             ))}
           </div>
@@ -90,11 +96,11 @@ export function DashboardMock({ variant = 'full' }: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {weeks.map((r) => (
+                  {weeks.map((r, row) => (
                     <tr key={r[0]}>
                       {r.map((c, i) => (
                         <td key={i} className={i ? 'num mono' : ''}>
-                          {c}
+                          {i ? <CountUp value={c} play={play} delay={350 + row * 120 + i * 30} duration={1200} /> : c}
                         </td>
                       ))}
                     </tr>
@@ -106,12 +112,16 @@ export function DashboardMock({ variant = 'full' }: Props) {
 
           <div className="side-sub">Top ads, Oct 1 to 14</div>
           <div className="ads">
-            {(compact ? ads.slice(0, 2) : ads).map((a) => (
+            {(compact ? ads.slice(0, 2) : ads).map((a, i) => (
               <div className="ad" key={a.name}>
                 <span className={`tier ${a.tier === 'A' ? 'a' : ''}`}>{a.tier}</span>
                 <span className="name mono">{a.name}</span>
-                <span className="muted">{a.p}</span>
-                <span className="mono">{a.cpp}</span>
+                <span className="muted">
+                  <CountUp value={a.p} play={play} delay={600 + i * 120} duration={1100} />
+                </span>
+                <span className="mono">
+                  <CountUp value={a.cpp} play={play} delay={600 + i * 120} duration={1100} />
+                </span>
               </div>
             ))}
           </div>
@@ -130,29 +140,33 @@ export function DashboardMock({ variant = 'full' }: Props) {
             <div className="side-sub" style={{ marginTop: 18 }}>
               Pacing to target
             </div>
-            <Pacing />
+            <Pacing play={play} />
           </aside>
         )}
       </div>
       {compact && (
         <div className="mock-foot">
-          <Pacing inline />
+          <Pacing inline play={play} />
         </div>
       )}
     </div>
   )
 }
 
-function Pacing({ inline = false }: { inline?: boolean }) {
+function Pacing({ inline = false, play }: { inline?: boolean; play: boolean }) {
   return (
     <div className={`pacing ${inline ? 'pacing--inline' : ''}`}>
       <div className="pace-row">
         <span className="muted">Month target</span>
-        <span className="mono">$820,000</span>
+        <span className="mono">
+          <CountUp value="$820,000" play={play} delay={500} />
+        </span>
       </div>
       <div className="pace-row">
         <span className="muted">Month to date</span>
-        <span className="mono">$412,380</span>
+        <span className="mono">
+          <CountUp value="$412,380" play={play} delay={500} />
+        </span>
       </div>
       <div className="pace-bar" aria-hidden="true">
         <i style={{ width: '50.3%' }} />
@@ -160,11 +174,15 @@ function Pacing({ inline = false }: { inline?: boolean }) {
       </div>
       <div className="pace-row">
         <span className="muted">Day 14 of 31</span>
-        <span className="up">Ahead by $42,060</span>
+        <span className="up">
+          <CountUp value="Ahead by $42,060" play={play} delay={900} duration={1300} />
+        </span>
       </div>
       <div className="pace-row">
         <span className="muted">MER vs target</span>
-        <span className="mono">4.82x vs 4.50x</span>
+        <span className="mono">
+          <CountUp value="4.82x vs 4.50x" play={play} delay={700} />
+        </span>
       </div>
     </div>
   )

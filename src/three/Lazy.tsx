@@ -74,10 +74,10 @@ export function Nexus({ labels = true, className }: { labels?: boolean; classNam
   )
 }
 
-export function Gauge({ className }: { className?: string }) {
+export function Gauge({ className, play = true }: { className?: string; play?: boolean }) {
   return (
     <Gate className={className} fallback={null}>
-      <PacingGauge />
+      <PacingGauge play={play} />
     </Gate>
   )
 }

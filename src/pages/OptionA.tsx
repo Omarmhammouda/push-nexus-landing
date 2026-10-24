@@ -1,6 +1,7 @@
 import { Eyebrow, Footer, Nav, Platforms, Reveal, TrustNote } from '../components/Chrome'
 import { DashboardMock } from '../components/DashboardMock'
 import { Glass } from '../components/Glass'
+import { CountUp } from '../components/CountUp'
 import { Icon } from '../components/Icons'
 import { HowItWorks, MethodCards, Numbers, ViewShowcase, WhoCards } from '../components/Sections'
 import { closing, hero } from '../content'
@@ -42,7 +43,7 @@ export default function OptionA() {
               <div className="float-stat-inner">
                 <span className="kicker" style={{ color: 'var(--muted-fg)' }}>MER vs target</span>
                 <span className="mono float-big">
-                  4.82x <span className="muted" style={{ fontSize: 14 }}>/ 4.50x</span>
+                  <CountUp value="4.82x" delay={500} duration={1600} /> <span className="muted" style={{ fontSize: 14 }}>/ 4.50x</span>
                 </span>
                 <span className="up" style={{ fontSize: 13, fontWeight: 500 }}>Budget you can spend today</span>
               </div>

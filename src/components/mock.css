@@ -40,15 +40,27 @@
 .mock-chart { margin-top: 14px; border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; }
 .mock-chart-head { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; }
 .mock .bars { position: relative; display: flex; align-items: flex-end; gap: 6px; height: 120px; margin-top: 12px; }
-.mock .bars i { flex: 1; background: var(--border); border-radius: 3px 3px 0 0; display: block; transform-origin: bottom; animation: bar-in .9s cubic-bezier(.2,.7,.2,1) both; }
+.mock .bars i { flex: 1; background: var(--border); border-radius: 3px 3px 0 0; display: block; transform-origin: bottom; animation: none 1s cubic-bezier(.3,1.35,.5,1) both; }
+.mock:not(.is-live) .bars i { transform: scaleY(0); }
+.mock.is-live .bars i { animation-name: bar-in; }
 .mock .bars i:nth-child(n+7) { background: color-mix(in srgb, var(--accent) 55%, var(--border)); }
 .mock .bars i.today { background: var(--accent); }
-.mock .bars i:nth-child(1) { animation-delay: .02s } .mock .bars i:nth-child(2) { animation-delay: .04s } .mock .bars i:nth-child(3) { animation-delay: .06s }
-.mock .bars i:nth-child(4) { animation-delay: .08s } .mock .bars i:nth-child(5) { animation-delay: .1s } .mock .bars i:nth-child(6) { animation-delay: .12s }
-.mock .bars i:nth-child(7) { animation-delay: .14s } .mock .bars i:nth-child(8) { animation-delay: .16s } .mock .bars i:nth-child(9) { animation-delay: .18s }
-.mock .bars i:nth-child(10) { animation-delay: .2s } .mock .bars i:nth-child(11) { animation-delay: .22s } .mock .bars i:nth-child(12) { animation-delay: .24s }
-.mock .bars i:nth-child(13) { animation-delay: .26s } .mock .bars i:nth-child(14) { animation-delay: .28s }
-.mock .target-line { position: absolute; left: 0; right: 0; bottom: 62%; border-top: 1px dashed var(--muted-fg); opacity: .6; }
+.mock .bars i:nth-child(1) { animation-delay: 0.150s }
+.mock .bars i:nth-child(2) { animation-delay: 0.205s }
+.mock .bars i:nth-child(3) { animation-delay: 0.260s }
+.mock .bars i:nth-child(4) { animation-delay: 0.315s }
+.mock .bars i:nth-child(5) { animation-delay: 0.370s }
+.mock .bars i:nth-child(6) { animation-delay: 0.425s }
+.mock .bars i:nth-child(7) { animation-delay: 0.480s }
+.mock .bars i:nth-child(8) { animation-delay: 0.535s }
+.mock .bars i:nth-child(9) { animation-delay: 0.590s }
+.mock .bars i:nth-child(10) { animation-delay: 0.645s }
+.mock .bars i:nth-child(11) { animation-delay: 0.700s }
+.mock .bars i:nth-child(12) { animation-delay: 0.755s }
+.mock .bars i:nth-child(13) { animation-delay: 0.810s }
+.mock .bars i:nth-child(14) { animation-delay: 0.865s }
+.mock .target-line { position: absolute; left: 0; right: 0; bottom: 62%; border-top: 1px dashed var(--muted-fg); opacity: 0; transition: opacity .6s ease 1.1s; }
+.mock.is-live .target-line { opacity: .6; }
 @keyframes bar-in { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 
 .mock .side-title { font-size: 12px; font-weight: 600; }
@@ -69,15 +81,25 @@
 .pacing { display: grid; gap: 2px; }
 .pace-row { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; padding: 3px 0; }
 .pace-bar { position: relative; height: 8px; border-radius: 4px; background: var(--border); margin: 6px 0; }
-.pace-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(90deg, var(--accent-2), var(--accent)); border-radius: 4px; animation: grow 1.2s cubic-bezier(.2,.7,.2,1) .3s both; transform-origin: left; }
-.pace-bar b { position: absolute; top: -3px; width: 2px; height: 14px; background: var(--fg); }
+.pace-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(90deg, var(--accent-2), var(--accent)); border-radius: 4px; animation: none 1.5s cubic-bezier(.22,.8,.2,1) .5s both; transform-origin: left; overflow: hidden; }
+.mock:not(.is-live) .pace-bar i { transform: scaleX(0); }
+.is-live .pace-bar i { animation-name: grow; }
+/* a light sweep across the fill once it lands */
+.pace-bar i::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent); transform: translateX(-100%); }
+.is-live .pace-bar i::after { animation: sweep 1.1s ease 2s 1 both; }
+@keyframes sweep { to { transform: translateX(100%); } }
+.pace-bar b { position: absolute; top: -3px; width: 2px; height: 14px; background: var(--fg); opacity: 0; transform: translateY(-4px); transition: opacity .4s ease 1.6s, transform .4s cubic-bezier(.3,1.4,.5,1) 1.6s; }
+.is-live .pace-bar b { opacity: 1; transform: none; }
 @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .mock-foot { border-top: 1px solid var(--border); padding: 12px 16px; background: var(--muted); }
 .pacing--inline { grid-template-columns: 1fr 1fr; column-gap: 24px; }
 .pacing--inline .pace-bar { grid-column: 1 / -1; order: -1; }
 
 @media (prefers-reduced-motion: reduce) {
-  .mock .bars i, .pace-bar i { animation: none; }
+  .mock .bars i, .pace-bar i, .pace-bar i::after { animation: none !important; }
+  .mock .target-line, .pace-bar b { opacity: 1; transform: none; transition: none; }
+  .mock .target-line { opacity: .6; }
+  .mock:not(.is-live) .bars i, .mock:not(.is-live) .pace-bar i { transform: none; }
 }
 @media (max-width: 900px) {
   .mock-body { grid-template-columns: 1fr; }

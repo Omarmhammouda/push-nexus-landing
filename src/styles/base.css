@@ -244,3 +244,8 @@ select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csv
   .footer-links { margin-left: 0; }
   .section { padding: 64px 0; }
 }
+
+/* ---------- count-up numbers ---------- */
+.countup { position: relative; display: inline-grid; font-variant-numeric: tabular-nums; }
+.countup > .countup-ghost, .countup > .countup-live { grid-area: 1 / 1; }
+.countup-ghost { visibility: hidden; }

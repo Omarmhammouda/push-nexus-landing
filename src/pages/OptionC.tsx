@@ -1,11 +1,13 @@
 import { Footer, Nav, Platforms, Reveal } from '../components/Chrome'
 import { Icon } from '../components/Icons'
+import { CountUp, useInView } from '../components/CountUp'
 import { AccessCard, HowItWorks, NumbersTable, SectionHead, Security, WhoTabs } from '../components/Sections'
 import { closing, hero, pacing } from '../content'
 import { Gauge, Gradient } from '../three/Lazy'
 
 /** Option C — Audience & Access-Led: who it's for, why to trust it, a real form. */
 export default function OptionC() {
+  const [gaugeRef, gaugeLive] = useInView<HTMLDivElement>(0.45)
   return (
     <div className="page page-c">
       <Nav />
@@ -20,15 +22,21 @@ export default function OptionC() {
             <p className="lede">{hero.lede}</p>
             <dl className="stats">
               <div>
-                <dt className="mono">{pacing.mer}</dt>
+                <dt className="mono">
+                  <CountUp value={pacing.mer} delay={200} duration={1600} />
+                </dt>
                 <dd>MER vs {pacing.merTarget} target</dd>
               </div>
               <div>
-                <dt className="mono">2.41%</dt>
+                <dt className="mono">
+                  <CountUp value="2.41%" delay={320} duration={1600} />
+                </dt>
                 <dd>conversion rate</dd>
               </div>
               <div>
-                <dt className="mono">Day {pacing.day}</dt>
+                <dt className="mono">
+                  <CountUp value={`Day ${pacing.day}`} delay={440} duration={1600} />
+                </dt>
                 <dd>of {pacing.days}, ahead of pace</dd>
               </div>
             </dl>
@@ -52,18 +60,20 @@ export default function OptionC() {
 
       <section className="section" id="pacing">
         <div className="container zig">
-          <Reveal className="gauge-wrap">
-            <Gauge />
+          <div className="gauge-wrap" ref={gaugeRef}>
+            <Gauge play={gaugeLive} />
             <div className="gauge-read">
-              <span className="mono gauge-big">{pacing.monthToDate}</span>
+              <span className="mono gauge-big">
+                <CountUp value={pacing.monthToDate} play={gaugeLive} duration={1900} delay={150} />
+              </span>
               <span className="muted" style={{ fontSize: 13 }}>
                 of {pacing.monthTarget} target
               </span>
               <span className="up" style={{ fontSize: 13, fontWeight: 600 }}>
-                {pacing.ahead}
+                <CountUp value={pacing.ahead} play={gaugeLive} duration={1600} delay={900} />
               </span>
             </div>
-          </Reveal>
+          </div>
           <div className="zig-copy">
             <SectionHead kicker={pacing.kicker} title={pacing.title} />
             <p className="lede">
