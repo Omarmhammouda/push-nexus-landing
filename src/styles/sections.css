@@ -1,0 +1,65 @@
+/* ---------- zig-zag rows ---------- */
+.zig { display: grid; grid-template-columns: 1fr 1.25fr; gap: 64px; align-items: center; }
+.zig--flip > :first-child { order: 2; }
+.zig-copy { display: grid; gap: 16px; align-content: start; }
+
+/* ---------- definition table ---------- */
+.def-table { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); overflow: hidden; }
+.def-row { display: grid; grid-template-columns: 220px 220px 1fr; gap: 24px; padding: 22px 28px; border-top: 1px solid var(--border); align-items: center; }
+.def-row:first-child { border-top: 0; }
+.def-head { background: var(--muted); padding-top: 14px; padding-bottom: 14px; font: 500 12px/1 var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted-fg); }
+.def-name { display: grid; gap: 4px; font-weight: 600; font-size: 18px; }
+.def-name .mono { font-size: 13px; font-weight: 500; }
+
+/* ---------- loupe screen ---------- */
+.loupe-frame { cursor: zoom-in; }
+.loupe-frame img { width: 100%; height: auto; }
+.hint { justify-self: center; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted-fg); }
+.hint svg { width: 14px; height: 14px; color: var(--accent); }
+@media (hover: none) { .hint { display: none; } }
+
+/* ---------- inline (pill) access form ---------- */
+.inline-access { width: min(560px, 100%); border-radius: 14px; }
+.inline-access-form { position: relative; display: flex; gap: 8px; padding: 8px; }
+.field--bare { border-color: transparent; background: color-mix(in srgb, var(--card) 70%, transparent); }
+.sent { display: flex; align-items: center; justify-content: center; gap: 10px; height: 64px; font-weight: 500; }
+.sent svg { width: 18px; height: 18px; color: var(--accent); }
+@media (max-width: 560px) { .inline-access-form { flex-direction: column; } }
+
+/* ---------- glass access card ---------- */
+.access-card { width: 100%; max-width: 460px; border-radius: 22px; }
+.access-inner { position: relative; padding: 30px; }
+.access-card .field { background: color-mix(in srgb, var(--card) 82%, transparent); }
+.pick { border: 0; padding: 0; margin: 2px 0 4px; display: grid; gap: 8px; }
+.pick legend { font-size: 13px; color: var(--muted-fg); margin-bottom: 8px; padding: 0; }
+.pick-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pick-chip {
+  height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 82%, transparent); color: var(--fg);
+  font: 500 13px/1 var(--font-sans); cursor: pointer; transition: all .15s ease;
+}
+.pick-chip[aria-pressed='true'] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.sent--big { flex-direction: column; height: auto; padding: 48px 8px; text-align: center; display: grid; justify-items: center; gap: 10px; }
+
+/* ---------- labels inside the 3D scene ---------- */
+.node-label {
+  display: inline-block; padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+  font: 500 12px/1.2 var(--font-sans); color: #fafafa;
+  background: rgba(24, 24, 27, .62); border: 1px solid rgba(255, 255, 255, .12);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  pointer-events: none; user-select: none;
+}
+
+.fade-in { animation: fade-in .45s ease both; }
+@keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 960px) {
+  .zig { grid-template-columns: 1fr; gap: 32px; }
+  .zig--flip > :first-child { order: 0; }
+  .def-row { grid-template-columns: 1fr; gap: 6px; }
+  .def-head { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } }
+
+.node-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.node-labels .node-label { position: absolute; left: 0; top: 0; opacity: 0; transition: opacity .4s ease; will-change: transform; }
