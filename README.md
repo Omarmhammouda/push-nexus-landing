@@ -11,8 +11,16 @@ Three landing page directions for Push Nexus, built with React + Vite. They shar
 
 ## Staging
 
-Live review copy: https://hubcitystudio.com (Cloudflare Worker `pushnexus-preview`, marked noindex).
-Redeploy with `npm run build && npx wrangler deploy`.
+Live review copy: https://hubcitystudio.com (also https://pushnexus-preview.pages.dev), marked noindex.
+
+Hosted on Cloudflare Pages (project `pushnexus-preview`), which auto-deploys the `deploy` branch of this repo. To publish changes:
+
+```bash
+npm run build
+# copy dist/ onto the deploy branch and push it; Cloudflare redeploys in about a minute
+```
+
+`wrangler.jsonc` + `worker/` are an alternative Workers setup if you ever want `npx wrangler deploy` instead.
 
 ## Run it
 
