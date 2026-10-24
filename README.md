@@ -6,7 +6,7 @@ Three landing page directions for Push Nexus, built with React + Vite. They shar
 | --- | --- | --- |
 | `#/a` | **Dashboard-First** | Live dashboard in a liquid-glass bezel over a warm ShaderGradient. 3D network behind the closing CTA. |
 | `#/b` | **Request-Access Led** (dark) | The Push Nexus mark rebuilt in 3D: platforms orbit the hub and data pulses flow into it. Glass email capture, product grid, ember gradient CTA. |
-| `#/c` | **Audience & Access-Led** | Glass access form floating over a ShaderGradient orb, brands/agencies tabs, metric definitions, 3D pacing gauge. |
+| `#/c` | **Audience & Access-Led** | Glass access form floating over a ShaderGradient orb, brands/agencies tabs, metric definitions, animated pacing card. |
 | `#/` | Index | Picks between the three. |
 
 ## Run it
@@ -22,7 +22,7 @@ Requires Node 20+. `dist/` is fully static with relative paths and hash routing,
 
 ## The three libraries
 
-- **[@react-three/fiber](https://github.com/pmndrs/react-three-fiber)** (+ drei): `src/three/NexusScene.tsx` (logo mark as a live network) and `src/three/PacingGauge.tsx` (month pacing ring).
+- **[@react-three/fiber](https://github.com/pmndrs/react-three-fiber)** (+ drei): `src/three/NexusScene.tsx`, the logo mark as a live network.
 - **[@shadergradient/react](https://github.com/ruucm/shadergradient)**: `src/three/GradientField.tsx`, with three brand presets: `dawn`, `ember` and `orb`.
 - **[@liquidglassjs/react](https://github.com/Amir-Abushanab/liquid-glass-js)** ("liquidglass.js"): the floating nav, the dashboard bezel and stat card, the access forms (`src/components/Glass.tsx`), and the hover loupe over product screenshots (`ViewShowcase` in `src/components/Sections.tsx`).
 

@@ -3,11 +3,11 @@ import { Icon } from '../components/Icons'
 import { CountUp, useInView } from '../components/CountUp'
 import { AccessCard, HowItWorks, NumbersTable, SectionHead, Security, WhoTabs } from '../components/Sections'
 import { closing, hero, pacing } from '../content'
-import { Gauge, Gradient } from '../three/Lazy'
+import { Gradient } from '../three/Lazy'
 
 /** Option C — Audience & Access-Led: who it's for, why to trust it, a real form. */
 export default function OptionC() {
-  const [gaugeRef, gaugeLive] = useInView<HTMLDivElement>(0.45)
+  const [paceRef, paceLive] = useInView<HTMLDivElement>(0.4)
   return (
     <div className="page page-c">
       <Nav />
@@ -60,34 +60,53 @@ export default function OptionC() {
 
       <section className="section" id="pacing">
         <div className="container zig">
-          <div className="gauge-wrap" ref={gaugeRef}>
-            <Gauge play={gaugeLive} />
-            <div className="gauge-read">
-              <span className="mono gauge-big">
-                <CountUp value={pacing.monthToDate} play={gaugeLive} duration={1900} delay={150} />
-              </span>
-              <span className="muted" style={{ fontSize: 13 }}>
-                of {pacing.monthTarget} target
-              </span>
-              <span className="up" style={{ fontSize: 13, fontWeight: 600 }}>
-                <CountUp value={pacing.ahead} play={gaugeLive} duration={1600} delay={900} />
-              </span>
-            </div>
-          </div>
           <div className="zig-copy">
             <SectionHead kicker={pacing.kicker} title={pacing.title} />
             <p className="lede">
               Set the month in plain terms, including promo days with their own target. Every view compares to target by default.
             </p>
-            <div className="legend">
-              <span>
-                <i style={{ background: 'linear-gradient(90deg,var(--accent-2),var(--accent))' }} /> Sales to date
-              </span>
-              <span>
-                <i style={{ background: 'var(--fg)' }} /> Where you should be by day {pacing.day}
+            <p className="body">{pacing.body}</p>
+          </div>
+
+          <div className={`pace-card ${paceLive ? 'is-live' : ''}`} ref={paceRef}>
+            <div className="pace-card-head">
+              <span className="kicker" style={{ color: 'var(--muted-fg)' }}>October pacing</span>
+              <span className="pace-pill">
+                <CountUp value={pacing.ahead} play={paceLive} duration={1600} delay={900} />
               </span>
             </div>
-            <p className="body">{pacing.body}</p>
+            <div className="pace-card-total">
+              <span className="mono pace-card-big">
+                <CountUp value={pacing.monthToDate} play={paceLive} duration={1700} delay={150} />
+              </span>
+              <span className="muted">of {pacing.monthTarget} target</span>
+            </div>
+            <div className="pace-track" aria-hidden="true">
+              <i className="pace-fill" style={{ width: '50.3%' }} />
+              <b className="pace-mark" style={{ left: '45.2%' }}>
+                <span>Day {pacing.day} target</span>
+              </b>
+            </div>
+            <dl className="pace-stats">
+              <div>
+                <dt>Day</dt>
+                <dd className="mono">
+                  <CountUp value={`${pacing.day} of ${pacing.days}`} play={paceLive} delay={300} />
+                </dd>
+              </div>
+              <div>
+                <dt>MER</dt>
+                <dd className="mono">
+                  <CountUp value={pacing.mer} play={paceLive} delay={400} />
+                </dd>
+              </div>
+              <div>
+                <dt>Target</dt>
+                <dd className="mono">
+                  <CountUp value={pacing.merTarget} play={paceLive} delay={500} />
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>

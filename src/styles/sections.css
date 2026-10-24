@@ -24,7 +24,11 @@
 .field--bare { border-color: transparent; background: color-mix(in srgb, var(--card) 70%, transparent); }
 .sent { display: flex; align-items: center; justify-content: center; gap: 10px; height: 64px; font-weight: 500; }
 .sent svg { width: 18px; height: 18px; color: var(--accent); }
-@media (max-width: 560px) { .inline-access-form { flex-direction: column; } }
+@media (max-width: 560px) {
+  .inline-access-form { gap: 6px; padding: 6px; }
+  .inline-access-form .field { min-width: 0; padding: 0 12px; }
+  .inline-access-form .btn-lg { padding: 0 14px; font-size: 14px; }
+}
 
 /* ---------- glass access card ---------- */
 .access-card { width: 100%; max-width: 460px; border-radius: 22px; }
@@ -56,10 +60,19 @@
 @media (max-width: 960px) {
   .zig { grid-template-columns: 1fr; gap: 32px; }
   .zig--flip > :first-child { order: 0; }
-  .def-row { grid-template-columns: 1fr; gap: 6px; }
+
   .def-head { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } }
 
 .node-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .node-labels .node-label { position: absolute; left: 0; top: 0; opacity: 0; transition: opacity .4s ease; will-change: transform; }
+
+.h3 { text-wrap: balance; }
+/* metric definitions: name + formula on one line, meaning underneath */
+@media (max-width: 960px) {
+  .def-row { grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; row-gap: 6px; padding: 18px 20px; }
+  .def-row > .body { grid-column: 1 / -1; }
+  .def-row > .mono { align-self: center; font-size: 13px; color: var(--muted-fg); }
+  .def-name { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: 10px; }
+}

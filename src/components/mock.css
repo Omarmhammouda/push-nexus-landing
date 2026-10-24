@@ -109,6 +109,7 @@
 @media (max-width: 640px) {
   .mock .kpis { grid-template-columns: repeat(2, 1fr); }
   .mock-bar .pill:not(.pill--on):nth-of-type(n+3) { display: none; }
+  .mock-brand { font-size: 0; gap: 0; margin-right: 0; }
   .mock .ad { grid-template-columns: 22px 1fr auto; }
   .mock .ad > :nth-child(3) { display: none; }
   .pacing--inline { grid-template-columns: 1fr; }

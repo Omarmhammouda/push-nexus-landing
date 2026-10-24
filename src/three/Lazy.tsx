@@ -3,7 +3,6 @@ import { hasWebGL } from './motion'
 import type { GradientPreset } from './GradientField'
 
 const NexusScene = lazy(() => import('./NexusScene'))
-const PacingGauge = lazy(() => import('./PacingGauge'))
 const GradientField = lazy(() => import('./GradientField'))
 
 class Boundary extends Component<{ fallback: ReactNode; children: ReactNode }, { failed: boolean }> {
@@ -70,14 +69,6 @@ export function Nexus({ labels = true, className }: { labels?: boolean; classNam
       fallback={<div className="canvas-fill" style={{ background: 'radial-gradient(40% 50% at 50% 50%, rgba(255,138,31,.28), transparent 70%)' }} />}
     >
       <NexusScene labels={labels} />
-    </Gate>
-  )
-}
-
-export function Gauge({ className, play = true }: { className?: string; play?: boolean }) {
-  return (
-    <Gate className={className} fallback={null}>
-      <PacingGauge play={play} />
     </Gate>
   )
 }

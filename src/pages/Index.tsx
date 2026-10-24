@@ -5,7 +5,7 @@ import { Icon } from '../components/Icons'
 const options = [
   { to: '/a', name: 'Option A', title: 'Dashboard-First', body: 'The product is the hero. Live dashboard in a liquid-glass bezel over a warm shader gradient.', tags: ['ShaderGradient', 'Liquid glass', 'R3F closing'] },
   { to: '/b', name: 'Option B', title: 'Request-Access Led', body: 'Dark and immersive. Your platforms orbit the Push Nexus hub in 3D while you drop your email.', tags: ['React Three Fiber', 'Liquid glass', 'ShaderGradient CTA'] },
-  { to: '/c', name: 'Option C', title: 'Audience & Access-Led', body: 'Who it is for, why to trust it, and a real access form floating in glass over a gradient orb.', tags: ['ShaderGradient orb', 'Liquid glass form', '3D pacing gauge'] },
+  { to: '/c', name: 'Option C', title: 'Audience & Access-Led', body: 'Who it is for, why to trust it, and a real access form floating in glass over a gradient orb.', tags: ['ShaderGradient orb', 'Liquid glass form', 'Animated pacing card'] },
 ]
 
 export default function Index() {
