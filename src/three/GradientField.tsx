@@ -1,14 +1,14 @@
 import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react'
 import { usePrefersReducedMotion } from './motion'
 
-/** Brand-tuned ShaderGradient presets (orange #ff8a1f / amber #ffb454). */
+/** Brand-tuned ShaderGradient presets (violet #7c3aed / lavender #a78bfa). */
 const presets = {
   // soft warm field for light heroes
   dawn: {
     type: 'plane',
-    color1: '#ffb454',
-    color2: '#ff8a1f',
-    color3: '#fff4e8',
+    color1: '#a78bfa',
+    color2: '#7c3aed',
+    color3: '#f3eeff',
     uSpeed: 0.18,
     uStrength: 2.6,
     uDensity: 1.2,
@@ -27,7 +27,7 @@ const presets = {
   // deep ember for dark bands
   ember: {
     type: 'waterPlane',
-    color1: '#ff8a1f',
+    color1: '#7c3aed',
     color2: '#3a1602',
     color3: '#09090b',
     uSpeed: 0.12,
@@ -48,9 +48,9 @@ const presets = {
   // glowing orb behind a glass card
   orb: {
     type: 'sphere',
-    color1: '#ffb454',
-    color2: '#ff9d3a',
-    color3: '#fff1e2',
+    color1: '#a78bfa',
+    color2: '#8b5cf6',
+    color3: '#efe8ff',
     uSpeed: 0.12,
     uStrength: 0.35,
     uDensity: 0.9,

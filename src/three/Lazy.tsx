@@ -49,9 +49,9 @@ function Gate({ fallback, children, className = '' }: { fallback: ReactNode; chi
 }
 
 const fallbacks: Record<GradientPreset, string> = {
-  dawn: 'radial-gradient(70% 90% at 75% 10%, #ffb454 0%, rgba(255,138,31,.55) 35%, rgba(250,250,250,0) 75%)',
-  ember: 'radial-gradient(80% 120% at 70% 110%, rgba(255,138,31,.55) 0%, rgba(42,15,0,.6) 45%, #09090b 80%)',
-  orb: 'radial-gradient(closest-side, #ffb454, #ff8a1f 60%, rgba(255,138,31,0) 100%)',
+  dawn: 'radial-gradient(70% 90% at 75% 10%, #a78bfa 0%, rgba(124, 58, 237,.55) 35%, rgba(250,250,250,0) 75%)',
+  ember: 'radial-gradient(80% 120% at 70% 110%, rgba(124, 58, 237,.55) 0%, rgba(22,10,46,.6) 45%, #09090b 80%)',
+  orb: 'radial-gradient(closest-side, #a78bfa, #7c3aed 60%, rgba(124, 58, 237,0) 100%)',
 }
 
 export function Gradient({ preset, className }: { preset: GradientPreset; className?: string }) {
@@ -66,7 +66,7 @@ export function Nexus({ labels = true, className }: { labels?: boolean; classNam
   return (
     <Gate
       className={className}
-      fallback={<div className="canvas-fill" style={{ background: 'radial-gradient(40% 50% at 50% 50%, rgba(255,138,31,.28), transparent 70%)' }} />}
+      fallback={<div className="canvas-fill" style={{ background: 'radial-gradient(40% 50% at 50% 50%, rgba(124, 58, 237,.28), transparent 70%)' }} />}
     >
       <NexusScene labels={labels} />
     </Gate>

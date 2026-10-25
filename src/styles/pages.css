@@ -25,7 +25,7 @@
 .page-a .cta-dark { padding: 140px 0; }
 
 /* ================= Option B ================= */
-.page-b { background: radial-gradient(1200px 600px at 50% -10%, rgba(255, 138, 31, .10), transparent 60%), var(--bg); }
+.page-b { background: radial-gradient(1200px 600px at 50% -10%, rgba(124, 58, 237, .10), transparent 60%), var(--bg); }
 .hero-b { position: relative; min-height: min(100svh, 940px); display: grid; align-items: center; padding: 140px 0 80px; overflow: hidden; isolation: isolate; }
 .hero-b-scene { z-index: -2; }
 .hero-b-vignette {
@@ -37,14 +37,14 @@
 .hero-b-copy .lede { max-width: 640px; }
 .hero-b-copy .note { font-size: 13px; }
 .hero-b-mock { position: relative; padding: 0 0 40px; }
-.page-b .mock { box-shadow: 0 0 0 1px rgba(255,138,31,.08), 0 40px 120px -30px rgba(255, 138, 31, .35); }
+.page-b .mock { box-shadow: 0 0 0 1px rgba(124, 58, 237,.08), 0 40px 120px -30px rgba(124, 58, 237, .35); }
 .page-b .shot { box-shadow: 0 30px 80px -30px rgba(0,0,0,.8); }
 .page-b .card { background: color-mix(in srgb, var(--card) 70%, transparent); }
 .cta-b { padding: 140px 0; }
 .cta-b-grid { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
 
 /* ================= Option C ================= */
-.page-c { background: linear-gradient(180deg, #fff7ef 0, var(--bg) 760px); }
+.page-c { background: linear-gradient(180deg, #f6f2ff 0, var(--bg) 760px); }
 .hero-c { position: relative; padding: 140px 0 96px; }
 .hero-c-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
 .hero-c-copy { display: grid; gap: 22px; justify-items: start; }
@@ -83,7 +83,7 @@
 .cta-c-row { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
 
 /* ================= Index ================= */
-.index-page { background: radial-gradient(900px 500px at 80% -10%, rgba(255,138,31,.12), transparent 60%), var(--bg); }
+.index-page { background: radial-gradient(900px 500px at 80% -10%, rgba(124, 58, 237,.12), transparent 60%), var(--bg); }
 
 /* ================= responsive ================= */
 @media (max-width: 1080px) {

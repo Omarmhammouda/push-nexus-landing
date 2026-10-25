@@ -9,8 +9,8 @@ import { usePrefersReducedMotion } from './motion'
  * feeds the hub, and little pulses of data travel inward along the edges.
  */
 
-const ORANGE = new THREE.Color('#ff8a1f')
-const AMBER = new THREE.Color('#ffb454')
+const VIOLET = new THREE.Color('#7c3aed')
+const LAVENDER = new THREE.Color('#a78bfa')
 const ORIGIN = new THREE.Vector3(0, 0, 0)
 const LABEL_OFFSET = new THREE.Vector3(0, 0.5, 0)
 
@@ -131,23 +131,23 @@ function Network({ labelRefs }: { labelRefs?: LabelRefs }) {
       {/* hub */}
       <mesh ref={hub}>
         <sphereGeometry args={[0.62, 64, 64]} />
-        <meshPhysicalMaterial color={AMBER} emissive={ORANGE} emissiveIntensity={0.85} roughness={0.25} clearcoat={1} clearcoatRoughness={0.15} />
+        <meshPhysicalMaterial color={LAVENDER} emissive={VIOLET} emissiveIntensity={0.85} roughness={0.25} clearcoat={1} clearcoatRoughness={0.15} />
       </mesh>
       <mesh>
         <sphereGeometry args={[0.95, 32, 32]} />
-        <meshBasicMaterial color={ORANGE} transparent opacity={0.08} depthWrite={false} />
+        <meshBasicMaterial color={VIOLET} transparent opacity={0.08} depthWrite={false} />
       </mesh>
       <mesh>
         <sphereGeometry args={[1.45, 32, 32]} />
-        <meshBasicMaterial color={ORANGE} transparent opacity={0.035} depthWrite={false} />
+        <meshBasicMaterial color={VIOLET} transparent opacity={0.035} depthWrite={false} />
       </mesh>
 
       {/* edges */}
       <lineSegments geometry={edgeGeo}>
-        <lineBasicMaterial color="#ff9d3a" transparent opacity={0.55} />
+        <lineBasicMaterial color="#8b5cf6" transparent opacity={0.55} />
       </lineSegments>
       <lineSegments geometry={faintGeo}>
-        <lineBasicMaterial color="#ff9d3a" transparent opacity={0.16} />
+        <lineBasicMaterial color="#8b5cf6" transparent opacity={0.16} />
       </lineSegments>
 
       {/* platform nodes */}
@@ -155,21 +155,21 @@ function Network({ labelRefs }: { labelRefs?: LabelRefs }) {
         <group key={i} position={p}>
           <mesh>
             <sphereGeometry args={[0.2, 32, 32]} />
-            <meshStandardMaterial color={i < 2 ? AMBER : ORANGE} emissive={i < 2 ? AMBER : ORANGE} emissiveIntensity={0.55} roughness={0.35} />
+            <meshStandardMaterial color={i < 2 ? LAVENDER : VIOLET} emissive={i < 2 ? LAVENDER : VIOLET} emissiveIntensity={0.55} roughness={0.35} />
           </mesh>
         </group>
       ))}
       {satellites.map((p, i) => (
         <mesh key={`s${i}`} position={p}>
           <sphereGeometry args={[0.055, 12, 12]} />
-          <meshBasicMaterial color="#ffb454" transparent opacity={0.55} />
+          <meshBasicMaterial color="#a78bfa" transparent opacity={0.55} />
         </mesh>
       ))}
 
       {/* data in flight */}
       <instancedMesh ref={pulses} args={[undefined, undefined, PULSES]}>
         <sphereGeometry args={[0.05, 10, 10]} />
-        <meshBasicMaterial color="#ffd29a" toneMapped={false} />
+        <meshBasicMaterial color="#ddd6fe" toneMapped={false} />
       </instancedMesh>
     </group>
   )
@@ -183,9 +183,9 @@ export default function NexusScene({ labels = true, className = '' }: { labels?:
       <Canvas camera={{ position: [0, 0, 9.2], fov: 45 }} dpr={[1, 2]} gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }} frameloop={reduced ? 'demand' : 'always'}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[3, 4, 5]} intensity={1.6} />
-        <pointLight position={[0, 0, 0]} intensity={8} color="#ff8a1f" distance={6} />
+        <pointLight position={[0, 0, 0]} intensity={8} color="#7c3aed" distance={6} />
         <Network labelRefs={labels ? labelRefs : undefined} />
-        {!reduced && <Sparkles count={70} scale={[14, 7, 4]} size={2.2} speed={0.25} opacity={0.5} color="#ffb454" />}
+        {!reduced && <Sparkles count={70} scale={[14, 7, 4]} size={2.2} speed={0.25} opacity={0.5} color="#a78bfa" />}
       </Canvas>
       {labels && (
         <div className="node-labels" aria-hidden="true">
