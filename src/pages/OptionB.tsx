@@ -1,7 +1,7 @@
 import { Eyebrow, Footer, Nav, Platforms, Reveal } from '../components/Chrome'
 import { DashboardMock } from '../components/DashboardMock'
-import { InlineAccess, MethodRows, Numbers, ProductGrid, ViewShowcase } from '../components/Sections'
-import { closing, hero } from '../content'
+import { Contrast, InlineAccess, MethodRows, Numbers, ProductGrid, ViewShowcase } from '../components/Sections'
+import { closing, hero, positioning } from '../content'
 import { Gradient, Nexus } from '../three/Lazy'
 
 /** Option B — Request-Access Led: dark, immersive, email capture up front. */
@@ -14,11 +14,11 @@ export default function OptionB() {
         <Nexus className="hero-b-scene" />
         <div className="hero-b-vignette" />
         <div className="container hero-b-copy">
-          <Eyebrow>{hero.eyebrow}</Eyebrow>
+          <Eyebrow>{positioning.b.eyebrow}</Eyebrow>
           <h1 className="h1">
-            {hero.titleLead} <span className="accent">{hero.titleAccent}</span>
+            {positioning.b.titleLead} <span className="accent">{positioning.b.titleAccent}</span>
           </h1>
-          <p className="lede">{hero.ledeShort}</p>
+          <p className="lede">{positioning.b.lede}</p>
           <InlineAccess dark id="access" />
           <p className="note">{hero.trust}</p>
         </div>
@@ -35,6 +35,7 @@ export default function OptionB() {
         </div>
       </section>
 
+      <Contrast />
       <MethodRows />
       <ViewShowcase />
       <ProductGrid />

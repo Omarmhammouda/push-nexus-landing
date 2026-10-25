@@ -4,7 +4,7 @@ import { Glass } from './Glass'
 import { Icon, type IconName } from './Icons'
 import { Reveal, TrustNote } from './Chrome'
 import { CountUp } from './CountUp'
-import { closing, hero, how, method, numbers, platforms, product, security, views, viewsHead, who, type ViewKey } from '../content'
+import { closing, contrast, hero, how, method, numbers, platforms, product, security, views, viewsHead, who, type ViewKey } from '../content'
 
 const shot = (k: ViewKey) => `./views/${k}.jpg`
 
@@ -15,6 +15,35 @@ export function SectionHead({ kicker, title, lede, center = false }: { kicker: s
       <h2 className="h2">{title}</h2>
       {lede && <p className="lede">{lede}</p>}
     </Reveal>
+  )
+}
+
+/* ---------------- Before / after ---------------- */
+export function Contrast({ alt = false }: { alt?: boolean }) {
+  return (
+    <section className={`section ${alt ? 'alt' : ''}`} id="why">
+      <div className="container" style={{ display: 'grid', gap: 48 }}>
+        <SectionHead kicker={contrast.kicker} title={contrast.title} center />
+        <div className="contrast">
+          <Reveal className="contrast-col contrast-before">
+            <span className="contrast-label">{contrast.before.label}</span>
+            <ul>
+              {contrast.before.points.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={120} className="contrast-col contrast-after">
+            <span className="contrast-label">{contrast.after.label}</span>
+            <ul>
+              {contrast.after.points.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </div>
+    </section>
   )
 }
 

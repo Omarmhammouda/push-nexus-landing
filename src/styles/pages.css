@@ -173,3 +173,7 @@
 @media (min-width: 721px) {
   .index-grid > .option-card { align-content: stretch; grid-template-rows: auto auto 1fr auto auto; }
 }
+.option-headline { margin: 0; font-size: 17px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em; color: var(--fg); text-wrap: balance; }
+@media (min-width: 721px) {
+  .index-grid > .option-card { grid-template-rows: auto auto auto 1fr auto auto; }
+}

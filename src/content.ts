@@ -1,4 +1,5 @@
-// All copy comes from Push Nexus's own landing page.
+// Product facts come from Push Nexus's own landing page.
+// Positioning: Push Nexus is the brain / operating system for an ecommerce store.
 
 export const hero = {
   eyebrow: 'From the team that runs Shopify brands',
@@ -9,8 +10,59 @@ export const hero = {
   ledeShort:
     'It ranks your ads the way we rank them, sets the target, paces you against it, and shows you every morning where efficiency went, so you move spend today instead of weeks from now.',
   trust: "Read-only connections through each platform's official API. Revoke any time.",
+  category: 'The ecommerce operating system',
   primary: 'Request access',
   secondary: 'See the method',
+}
+
+/** Each review direction tests a different line from the same idea. */
+export const positioning = {
+  a: {
+    eyebrow: 'The ecommerce operating system',
+    titleLead: 'The operating system for your',
+    titleAccent: 'ecommerce store.',
+    lede:
+      'Push Nexus pulls Meta, TikTok, Google, GA4, Shopify and Klaviyo into one place, measures them the same way, and tells you every morning where to move spend.',
+    note: 'Built by the team that runs paid media for Shopify brands.',
+  },
+  b: {
+    eyebrow: 'Built by operators who run Shopify brands',
+    titleLead: 'The brain behind your',
+    titleAccent: 'Shopify store.',
+    lede:
+      'Push Nexus connects every channel you run, ranks your ads by what they actually sell, paces you against target, and gives you the call for today, every morning.',
+  },
+  c: {
+    eyebrow: 'For Shopify brands and the agencies that run them',
+    titleLead: 'One brain for every',
+    titleAccent: 'store you run.',
+    lede:
+      'Push Nexus gives brands and agencies one operating system for paid media: every platform connected, every number defined the same way, and a clear call each morning.',
+  },
+}
+
+/** Before / after: the problem Push Nexus replaces. */
+export const contrast = {
+  kicker: 'Why it exists',
+  title: 'Your store already has the data. It just doesn’t have a brain.',
+  before: {
+    label: 'Without Push Nexus',
+    points: [
+      'Six ad managers, six versions of ROAS that never add up',
+      'You find out the month went sideways at month end',
+      'Creatives judged on $40 of spend and a gut feeling',
+      'Monday mornings spent rebuilding the same spreadsheet',
+    ],
+  },
+  after: {
+    label: 'With Push Nexus',
+    points: [
+      'One view, three blended numbers: MER, conversion rate, AOV',
+      'Ahead or behind target, every single morning',
+      'Every ad ranked by purchases and cost per purchase',
+      'A clear call for today, so you move spend the same day',
+    ],
+  },
 }
 
 export const nav = [
@@ -32,10 +84,10 @@ export const platforms = [
 export const platformsNote = 'Connects to the platforms you already run, plus a custom source for anything else you track'
 
 export const method = {
-  kicker: 'The method',
-  title: 'Three habits, built into the product.',
+  kicker: 'How it thinks',
+  title: 'It thinks like your best media buyer. Every morning.',
   lede:
-    'We spent years running paid media for ecommerce brands and kept the habits that moved revenue. Push Nexus is those habits as software.',
+    'We spent years running paid media for ecommerce brands and kept the three habits that moved revenue. Push Nexus runs them across every channel, every day.',
   habits: [
     {
       title: 'Rank ads by what they sell',
@@ -100,8 +152,8 @@ export const viewsHead = {
 
 export const numbers = {
   kicker: 'The numbers',
-  title: 'Blended metrics, not platform ROAS.',
-  lede: 'Every ad platform grades its own homework. Everything here runs on three numbers measured against the whole store and total spend.',
+  title: 'One source of truth. Not six versions of ROAS.',
+  lede: 'Every ad platform grades its own homework. Push Nexus measures everything against the whole store and total spend, with three numbers that explain every move in revenue.',
   metrics: [
     { name: 'MER', formula: 'Sales ÷ Total spend', value: '4.82x', body: 'Marketing efficiency across every platform at once. Higher is better, and it never pretends spend is smaller than it is.' },
     { name: 'Conversion rate', formula: 'Orders ÷ Traffic', value: '2.41%', body: 'Orders over store sessions, so you know whether the site is converting the traffic the ads bring in.' },
@@ -127,7 +179,7 @@ export const product = {
 
 export const how = {
   kicker: 'How it works',
-  title: 'Connected in an afternoon.',
+  title: 'Connected in an afternoon. Smarter by the next morning.',
   steps: [
     { n: '01', title: 'Connect', body: 'Sign in to each platform through its own login. Pick the ad accounts, store and property you want in the view.' },
     { n: '02', title: 'Sync', body: 'Push Nexus pulls daily spend, sales, orders and sessions for every source and keeps them current, with history backfilled.' },
@@ -184,7 +236,7 @@ export const security = [
 ]
 
 export const closing = {
-  title: 'Run the store on a daily loop.',
+  title: 'Give your store a brain.',
   lede: 'Tell us which platforms you run and we will get you connected.',
 }
 

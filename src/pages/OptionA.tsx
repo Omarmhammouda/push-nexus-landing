@@ -3,8 +3,8 @@ import { DashboardMock } from '../components/DashboardMock'
 import { Glass } from '../components/Glass'
 import { CountUp } from '../components/CountUp'
 import { Icon } from '../components/Icons'
-import { HowItWorks, MethodCards, Numbers, ViewShowcase, WhoCards } from '../components/Sections'
-import { closing, hero } from '../content'
+import { Contrast, HowItWorks, MethodCards, Numbers, ViewShowcase, WhoCards } from '../components/Sections'
+import { closing, hero, positioning } from '../content'
 import { Gradient, Nexus } from '../three/Lazy'
 
 /** Option A — Dashboard-First: the product is the hero. */
@@ -17,11 +17,11 @@ export default function OptionA() {
         <Gradient preset="dawn" className="hero-a-gradient fade-bottom" />
         <div className="container hero-a-grid">
           <div className="hero-a-copy">
-            <Eyebrow>{hero.eyebrow}</Eyebrow>
+            <Eyebrow>{positioning.a.eyebrow}</Eyebrow>
             <h1 className="h1">
-              {hero.titleLead} <span className="accent">{hero.titleAccent}</span>
+              {positioning.a.titleLead} <span className="accent">{positioning.a.titleAccent}</span>
             </h1>
-            <p className="lede">{hero.lede}</p>
+            <p className="lede">{positioning.a.lede}</p>
             <div className="cta-row">
               <a className="btn btn-primary btn-lg" href="#access">
                 {hero.primary} <Icon name="arrow" className="arrow" width={16} height={16} />
@@ -58,6 +58,7 @@ export default function OptionA() {
         </div>
       </section>
 
+      <Contrast />
       <MethodCards />
       <Numbers />
       <ViewShowcase />

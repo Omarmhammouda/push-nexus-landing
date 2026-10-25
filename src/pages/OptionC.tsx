@@ -1,8 +1,8 @@
 import { Footer, Nav, Platforms, Reveal } from '../components/Chrome'
 import { Icon } from '../components/Icons'
 import { CountUp, useInView } from '../components/CountUp'
-import { AccessCard, HowItWorks, NumbersTable, SectionHead, Security, WhoTabs } from '../components/Sections'
-import { closing, hero, pacing } from '../content'
+import { AccessCard, Contrast, HowItWorks, NumbersTable, SectionHead, Security, WhoTabs } from '../components/Sections'
+import { closing, hero, pacing, positioning } from '../content'
 import { Gradient } from '../three/Lazy'
 
 /** Option C — Audience & Access-Led: who it's for, why to trust it, a real form. */
@@ -15,11 +15,11 @@ export default function OptionC() {
       <header className="hero-c">
         <div className="container hero-c-grid">
           <div className="hero-c-copy">
-            <span className="kicker">For Shopify brands and the agencies that run them</span>
+            <span className="kicker">{positioning.c.eyebrow}</span>
             <h1 className="h1">
-              {hero.titleLead} <span className="accent">{hero.titleAccent}</span>
+              {positioning.c.titleLead} <span className="accent">{positioning.c.titleAccent}</span>
             </h1>
-            <p className="lede">{hero.lede}</p>
+            <p className="lede">{positioning.c.lede}</p>
             <dl className="stats">
               <div>
                 <dt className="mono">
@@ -55,6 +55,7 @@ export default function OptionC() {
         </div>
       </section>
 
+      <Contrast alt />
       <WhoTabs />
       <NumbersTable />
 

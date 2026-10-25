@@ -76,3 +76,25 @@
   .def-row > .mono { align-self: center; font-size: 13px; color: var(--muted-fg); }
   .def-name { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: 10px; }
 }
+
+/* ---------- before / after ---------- */
+.contrast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.contrast-col { display: grid; gap: 18px; align-content: start; padding: 28px; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.contrast-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.contrast-col li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; font-size: 16px; line-height: 1.5; }
+.contrast-col li::before { content: ''; width: 20px; height: 20px; margin-top: 2px; border-radius: 6px; background-position: center; background-repeat: no-repeat; background-size: 20px; }
+.contrast-label { font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.contrast-before { background: var(--muted); }
+.contrast-before .contrast-label { color: var(--muted-fg); }
+.contrast-before li { color: var(--muted-fg); }
+.contrast-before li::before { background-color: color-mix(in srgb, var(--muted-fg) 14%, transparent); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 7l6 6M13 7l-6 6' fill='none' stroke='%2371717a' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.contrast-after { background: var(--card); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); box-shadow: 0 24px 60px -30px rgba(255, 138, 31, .45); }
+.contrast-after .contrast-label { color: var(--accent); }
+.contrast-after li { color: var(--fg); font-weight: 500; }
+.contrast-after li::before { background-color: var(--accent-soft); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.4l3 3L14.5 7' fill='none' stroke='%23ff8a1f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.page-b .contrast-after { background: color-mix(in srgb, var(--card) 80%, transparent); }
+@media (max-width: 720px) {
+  .contrast { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .contrast-col { padding: 20px; gap: 14px; }
+  .contrast-col li { font-size: 15px; }
+}
