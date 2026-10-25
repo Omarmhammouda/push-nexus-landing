@@ -1,7 +1,7 @@
 import { Footer, Nav, Platforms, Reveal } from '../components/Chrome'
 import { Icon } from '../components/Icons'
 import { CountUp, useInView } from '../components/CountUp'
-import { AccessCard, Contrast, HowItWorks, NumbersTable, SectionHead, Security, WhoTabs } from '../components/Sections'
+import { AccessCard, AISection, Contrast, HowItWorks, NumbersTable, SectionHead, Security, WhoTabs } from '../components/Sections'
 import { closing, hero, pacing, positioning } from '../content'
 import { Gradient } from '../three/Lazy'
 
@@ -56,8 +56,9 @@ export default function OptionC() {
       </section>
 
       <Contrast alt />
-      <WhoTabs />
+      <AISection />
       <NumbersTable />
+      <WhoTabs />
 
       <section className="section" id="pacing">
         <div className="container zig">

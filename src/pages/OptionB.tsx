@@ -1,6 +1,6 @@
 import { Eyebrow, Footer, Nav, Platforms, Reveal } from '../components/Chrome'
 import { DashboardMock } from '../components/DashboardMock'
-import { Contrast, InlineAccess, MethodRows, Numbers, ProductGrid, ViewShowcase } from '../components/Sections'
+import { AISection, Contrast, InlineAccess, MethodRows, Numbers, ProductGrid, ViewShowcase } from '../components/Sections'
 import { closing, hero, positioning } from '../content'
 import { Gradient, Nexus } from '../three/Lazy'
 
@@ -36,6 +36,7 @@ export default function OptionB() {
       </section>
 
       <Contrast />
+      <AISection alt />
       <MethodRows />
       <ViewShowcase />
       <ProductGrid />

@@ -41,7 +41,7 @@ export default function Index() {
           <span className="kicker">Landing page directions · Review</span>
           <h1 className="h1">Give the store a brain. Three ways to say it.</h1>
           <p className="lede">
-            Push Nexus is the operating system behind an ecommerce store. Each direction tests a different headline for that idea and a different path to a request for access. Open each one, scroll through it, and try it on your phone too.
+            Push Nexus is the AI operating system behind an ecommerce store: it connects every channel, and its AI writes the call for today every morning. Each direction tests a different headline for that idea and a different path to a request for access. Open each one, scroll through it, and try it on your phone too.
           </p>
         </div>
         <div className="grid-3 index-grid">

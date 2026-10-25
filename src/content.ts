@@ -10,7 +10,7 @@ export const hero = {
   ledeShort:
     'It ranks your ads the way we rank them, sets the target, paces you against it, and shows you every morning where efficiency went, so you move spend today instead of weeks from now.',
   trust: "Read-only connections through each platform's official API. Revoke any time.",
-  category: 'The ecommerce operating system',
+  category: 'The AI operating system for ecommerce',
   primary: 'Request access',
   secondary: 'See the method',
 }
@@ -18,11 +18,11 @@ export const hero = {
 /** Each review direction tests a different line from the same idea. */
 export const positioning = {
   a: {
-    eyebrow: 'The ecommerce operating system',
+    eyebrow: 'The AI operating system for ecommerce',
     titleLead: 'The operating system for your',
     titleAccent: 'ecommerce store.',
     lede:
-      'Push Nexus pulls Meta, TikTok, Google, GA4, Shopify and Klaviyo into one place, measures them the same way, and tells you every morning where to move spend.',
+      'Push Nexus pulls Meta, TikTok, Google, GA4, Shopify and Klaviyo into one place and measures them the same way. Then its AI tells you every morning what moved, why, and where to put spend today.',
     note: 'Built by the team that runs paid media for Shopify brands.',
   },
   b: {
@@ -30,14 +30,14 @@ export const positioning = {
     titleLead: 'The brain behind your',
     titleAccent: 'Shopify store.',
     lede:
-      'Push Nexus connects every channel you run, ranks your ads by what they actually sell, paces you against target, and gives you the call for today, every morning.',
+      'Push Nexus AI reads every channel you run overnight, ranks your ads by what they actually sell, paces you against target, and has the call for today waiting when you wake up.',
   },
   c: {
     eyebrow: 'For Shopify brands and the agencies that run them',
     titleLead: 'One brain for every',
     titleAccent: 'store you run.',
     lede:
-      'Push Nexus gives brands and agencies one operating system for paid media: every platform connected, every number defined the same way, and a clear call each morning.',
+      'Push Nexus gives brands and agencies one AI-powered operating system for paid media: every platform connected, every number defined the same way, and an AI-written brief with a clear call for every store, every morning.',
   },
 }
 
@@ -60,13 +60,41 @@ export const contrast = {
       'One view, three blended numbers: MER, conversion rate, AOV',
       'Ahead or behind target, every single morning',
       'Every ad ranked by purchases and cost per purchase',
-      'A clear call for today, so you move spend the same day',
+      'An AI-written brief every morning with the call for today',
     ],
+  },
+}
+
+/** Push Nexus AI: built on the daily snapshot (written narrative + operator review). */
+export const ai = {
+  kicker: 'Push Nexus AI',
+  title: 'An AI analyst that reads your whole store overnight.',
+  lede:
+    'While you sleep, Push Nexus AI goes through every channel, every ad and every order, works out what changed and why, and has the call for today ready when you open your laptop.',
+  capabilities: [
+    { icon: 'sun', title: 'Writes your morning brief', body: 'Yesterday in plain English: what sold, what it cost, and what moved the number.' },
+    { icon: 'compare', title: 'Explains every move', body: 'When MER, conversion rate or AOV shifts, it traces the change to the channel, country or creative behind it.' },
+    { icon: 'rank', title: 'Spots winners and drains early', body: 'Flags the ads ready to scale and the ones quietly burning budget, before the week is gone.' },
+    { icon: 'target', title: 'Makes the call for today', body: 'Where to add spend, where to pull it, and how much, measured against your monthly target.' },
+  ] as const,
+  human: 'AI does the reading. An operator checks the call. You make the move.',
+  brief: {
+    stamp: 'Morning brief · 7:02 AM',
+    lines: [
+      'Revenue came in at $31,240 yesterday, 9% above the pace you need for the month.',
+      'MER held at 4.82x against a 4.50x target. Most of the lift came from Meta.',
+      'Conversion rate slipped in Canada, mostly on mobile. Worth a look at checkout.',
+      'Two new UGC ads reached the top tier on under $600 of spend.',
+    ],
+    callLabel: 'The call for today',
+    call: 'Move $1,200 a day from Google Shopping into the two new Meta ads.',
+    reviewed: 'Reviewed by your Push Nexus operator',
   },
 }
 
 export const nav = [
   { label: 'Method', href: '#method' },
+  { label: 'AI', href: '#ai' },
   { label: 'Views', href: '#views' },
   { label: 'Product', href: '#product' },
   { label: 'How it works', href: '#how' },
@@ -139,8 +167,8 @@ export const views: { key: ViewKey; tab: string; title: string; text: string; al
   {
     key: 'snapshot',
     tab: 'Daily snapshot',
-    title: 'The daily snapshot.',
-    text: 'Yesterday in one page: what sold, what it cost, why it moved, and the call for today, reviewed before it goes out.',
+    title: 'The AI daily snapshot.',
+    text: 'Yesterday in one page, written by Push Nexus AI: what sold, what it cost, why it moved, and the call for today. An operator reviews it before it goes out.',
     alt: 'Push Nexus daily snapshot with narrative, reviewer note and comparison table',
   },
 ]

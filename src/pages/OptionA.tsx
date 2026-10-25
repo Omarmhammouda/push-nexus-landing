@@ -3,7 +3,7 @@ import { DashboardMock } from '../components/DashboardMock'
 import { Glass } from '../components/Glass'
 import { CountUp } from '../components/CountUp'
 import { Icon } from '../components/Icons'
-import { Contrast, HowItWorks, MethodCards, Numbers, ViewShowcase, WhoCards } from '../components/Sections'
+import { AISection, Contrast, HowItWorks, MethodCards, Numbers, ViewShowcase, WhoCards } from '../components/Sections'
 import { closing, hero, positioning } from '../content'
 import { Gradient, Nexus } from '../three/Lazy'
 
@@ -59,6 +59,7 @@ export default function OptionA() {
       </section>
 
       <Contrast />
+      <AISection alt />
       <MethodCards />
       <Numbers />
       <ViewShowcase />

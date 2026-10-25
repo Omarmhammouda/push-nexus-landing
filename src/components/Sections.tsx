@@ -3,8 +3,8 @@ import { useState, type FormEvent } from 'react'
 import { Glass } from './Glass'
 import { Icon, type IconName } from './Icons'
 import { Reveal, TrustNote } from './Chrome'
-import { CountUp } from './CountUp'
-import { closing, contrast, hero, how, method, numbers, platforms, product, security, views, viewsHead, who, type ViewKey } from '../content'
+import { CountUp, useInView } from './CountUp'
+import { ai, closing, contrast, hero, how, method, numbers, platforms, product, security, views, viewsHead, who, type ViewKey } from '../content'
 
 const shot = (k: ViewKey) => `./views/${k}.jpg`
 
@@ -42,6 +42,57 @@ export function Contrast({ alt = false }: { alt?: boolean }) {
             </ul>
           </Reveal>
         </div>
+      </div>
+    </section>
+  )
+}
+
+/* ---------------- Push Nexus AI ---------------- */
+export function AISection({ alt = false }: { alt?: boolean }) {
+  const [ref, seen] = useInView<HTMLDivElement>(0.15)
+  const b = ai.brief
+  return (
+    <section className={`section ${alt ? 'alt' : ''}`} id="ai">
+      <div className="container ai-wrap">
+        <div className="ai-copy">
+          <SectionHead kicker={ai.kicker} title={ai.title} lede={ai.lede} />
+          <ul className="ai-caps">
+            {ai.capabilities.map((c, i) => (
+              <Reveal as="li" key={c.title} delay={i * 80} className="ai-cap">
+                <span className="icon-tile">
+                  <Icon name={c.icon} />
+                </span>
+                <div>
+                  <h3>{c.title}</h3>
+                  <p>{c.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+        <div ref={ref} className={`ai-brief ${seen ? 'is-live' : ''}`}>
+          <div className="ai-brief-top">
+            <span className="ai-badge">
+              <Icon name="spark" width={14} height={14} /> Push Nexus AI
+            </span>
+            <span className="ai-stamp">{b.stamp}</span>
+          </div>
+          <ul className="ai-lines">
+            {b.lines.map((l, i) => (
+              <li key={l} style={{ animationDelay: `${200 + i * 380}ms` }}>
+                {l}
+              </li>
+            ))}
+          </ul>
+          <div className="ai-call" style={{ animationDelay: `${200 + b.lines.length * 380}ms` }}>
+            <span>{b.callLabel}</span>
+            <p>{b.call}</p>
+          </div>
+          <div className="ai-reviewed" style={{ animationDelay: `${500 + b.lines.length * 380}ms` }}>
+            <Icon name="shield" width={16} height={16} /> {b.reviewed}
+          </div>
+        </div>
+        <p className="ai-human">{ai.human}</p>
       </div>
     </section>
   )

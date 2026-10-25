@@ -3,6 +3,7 @@ import type { SVGProps } from 'react'
 const base = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round', viewBox: '0 0 24 24' } as const
 
 export type IconName =
+  | 'spark'
   | 'channels' | 'compare' | 'grid' | 'globe' | 'mail' | 'lock' | 'sync' | 'target'
   | 'rank' | 'pace' | 'sun' | 'arrow' | 'shield' | 'key' | 'unplug'
 
@@ -18,6 +19,7 @@ const paths: Record<IconName, React.ReactNode> = {
   rank: <><path d="M4 20h4V10H4zM10 20h4V4h-4zM16 20h4v-7h-4z" /></>,
   pace: <><path d="M12 13l4-4" /><path d="M3.5 17a9 9 0 1 1 17 0" /></>,
   sun: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></>,
+  spark: <><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" /></>,
   arrow: <><path d="M5 12h14M13 6l6 6-6 6" /></>,
   shield: <><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z" /><path d="m9 12 2 2 4-4" /></>,
   key: <><circle cx="8" cy="15" r="4" /><path d="m11 12 9-9M17 6l3 3M15 8l2 2" /></>,
