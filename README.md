@@ -66,5 +66,5 @@ public/
 ## Before launch
 
 - **Forms**: `InlineAccess` and `AccessCard` in `Sections.tsx` only show a success state right now. Point `submit` at your endpoint (Formspree, a Next/Vercel function, HubSpot, etc.).
-- **Sign in / Privacy / Terms** links are placeholders (`#signin`, `#privacy`, `#terms`).
+- **Privacy / Terms** links are placeholders (`#privacy`, `#terms`).
 - Dashboard numbers are the demo-store figures from their site and are labeled as illustrative.

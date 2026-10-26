@@ -29,9 +29,6 @@ export function Nav({ dark = false }: { dark?: boolean }) {
             ))}
           </div>
           <div className="nav-right">
-            <a className="btn btn-ghost" href="#signin">
-              Sign in
-            </a>
             <a className="btn btn-primary" href="#access">
               Request access
             </a>
