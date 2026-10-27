@@ -99,6 +99,7 @@ export const nav = [
   { label: 'Product', href: '#product' },
   { label: 'How it works', href: '#how' },
   { label: "Who it's for", href: '#who' },
+  { label: 'Results', href: '#/results' },
 ]
 
 export const platforms = [
@@ -271,4 +272,87 @@ export const closing = {
 export const footer = {
   line: 'A Push Analytics product. © 2026 Push Nexus.',
   email: 'hello@pushnexus.ai',
+}
+
+/* ---------------- Results page ----------------
+ * SAMPLE CONTENT. Brands, people and numbers below are invented placeholders so
+ * the layout can be reviewed. Replace every story with real, approved client
+ * results before launch.
+ */
+export const results = {
+  sampleNote: 'Sample stories with invented brands and numbers, shown to review the layout. Real client results go here before launch.',
+  hero: {
+    eyebrow: 'Results',
+    titleLead: 'What changes when a store',
+    titleAccent: 'gets a brain.',
+    lede:
+      'Stores and agencies that run on Push Nexus, measured the way Push Nexus measures everything: blended MER, conversion rate and AOV, from Shopify and every ad platform at once.',
+    stats: [
+      { value: '+41%', label: 'median MER lift in 90 days' },
+      { value: '6 hrs', label: 'reporting saved per week' },
+      { value: '12 days', label: 'earlier to month target' },
+    ],
+  },
+  featured: {
+    brand: 'Northbound Outdoor',
+    category: 'Outdoor apparel · Shopify',
+    platforms: ['Meta', 'TikTok', 'Google Ads', 'Klaviyo'],
+    headline: 'From finding out at month end to moving spend every morning.',
+    before:
+      'Four ad managers, four versions of ROAS, and a spreadsheet rebuilt every Monday. Creatives were cut on gut feel, and a slow month only showed up once it was over.',
+    change:
+      'Every channel in one view, a revenue and MER target paced daily, and the AI morning brief. The team scaled top-tier ads each week and moved budget the day efficiency shifted.',
+    metrics: [
+      { label: 'Blended MER', from: '3.10x', to: '4.40x' },
+      { label: 'Conversion rate', from: '1.9%', to: '2.6%' },
+      { label: 'Monthly revenue', from: '$480K', to: '$662K' },
+    ],
+    chart: { label: 'Blended MER by month', months: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'], values: [3.1, 3.2, 3.6, 3.9, 4.2, 4.4], target: 4.0, startIndex: 2 },
+    timeline: [
+      { when: 'Week 1', what: 'Meta, TikTok, Google, GA4, Shopify and Klaviyo connected, with 12 months backfilled.' },
+      { when: 'Week 3', what: 'Two UGC ads hit the top tier on small spend. Budget scaled into them the same day.' },
+      { when: 'Month 2', what: 'The brief flagged Google Shopping running below target MER. 22% of it moved to Meta.' },
+      { when: 'Month 3', what: 'Hit the monthly revenue target 12 days early.' },
+    ],
+  },
+  stories: [
+    {
+      brand: 'Lumen Skin',
+      category: 'Skincare · Shopify',
+      stat: '+0.7 pts',
+      statLabel: 'conversion rate',
+      title: 'The brief caught a checkout problem the ad platforms never would.',
+      body: 'Conversion rate slipped in Canada on mobile while every ad manager looked fine. The morning brief traced it to a checkout change, fixed within the week.',
+      platforms: ['Meta', 'Google Ads', 'GA4'],
+    },
+    {
+      brand: 'Harbor & Pine',
+      category: 'Home goods · Shopify',
+      stat: '$64 → $81',
+      statLabel: 'average order value',
+      title: 'Bundles that showed up as winners, not just good ROAS.',
+      body: 'Ranking every ad by purchases and cost per purchase surfaced the bundle creatives. Scaling them lifted AOV without raising spend.',
+      platforms: ['Meta', 'TikTok', 'Klaviyo'],
+    },
+    {
+      brand: 'Fieldwork Agency',
+      category: 'Paid media agency · 14 stores',
+      stat: '2 days → 20 min',
+      statLabel: 'weekly client reporting',
+      title: 'Fourteen client stores, one login, one set of definitions.',
+      body: 'Numbers now match what each client sees in Shopify, so calls are about what to do next instead of whose dashboard is right.',
+      platforms: ['Meta', 'TikTok', 'Google Ads', 'Shopify'],
+    },
+  ],
+  measure: {
+    kicker: 'How we measure',
+    title: 'Every result, the same three numbers.',
+    lede: 'No platform-reported ROAS. Each result is measured against the whole store and total spend, so a win on one channel cannot hide a loss on another.',
+    items: [
+      { name: 'MER', formula: 'Sales ÷ Total spend' },
+      { name: 'Conversion rate', formula: 'Orders ÷ Traffic' },
+      { name: 'AOV', formula: 'Sales ÷ Orders' },
+    ],
+  },
+  closing: { title: 'Your store could be the next one here.', lede: 'Tell us which platforms you run and we will get you connected.' },
 }

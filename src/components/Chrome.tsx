@@ -5,7 +5,7 @@ import { Brand } from './Logo'
 import { Icon } from './Icons'
 import { nav, footer, platforms, platformsNote } from '../content'
 
-export function Nav({ dark = false }: { dark?: boolean }) {
+export function Nav({ dark = false, links = nav }: { dark?: boolean; links?: { label: string; href: string }[] }) {
   return (
     <div className="nav-wrap">
       <Glass
@@ -22,8 +22,8 @@ export function Nav({ dark = false }: { dark?: boolean }) {
             <Brand />
           </Link>
           <div className="nav-links">
-            {nav.map((l) => (
-              <a key={l.href} href={l.href}>
+            {links.map((l) => (
+              <a key={l.href} href={l.href} aria-current={l.href === '#/results' && location.hash.startsWith('#/results') ? 'page' : undefined}>
                 {l.label}
               </a>
             ))}

@@ -4,7 +4,8 @@ import { directions } from '../pages/Index'
 /** Floating review switcher shown on each direction while the client is reviewing. */
 export function StageBar() {
   const { pathname } = useLocation()
-  const current = directions.find((d) => d.to === pathname)
+  const isResults = pathname === '/results'
+  const current = isResults ? { title: 'Results' } : directions.find((d) => d.to === pathname)
   if (!current) return null
   return (
     <nav className="stage-bar" aria-label="Review directions">

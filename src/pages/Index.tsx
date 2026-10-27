@@ -63,6 +63,16 @@ export default function Index() {
             </Link>
           ))}
         </div>
+        <Link to="/results" className="card index-extra">
+          <div>
+            <span className="kicker">Shared page · all directions</span>
+            <h2 className="h3" style={{ fontSize: 20 }}>Results</h2>
+            <p className="body">Customer stories, laid out in the same system. The stories are samples until real client results come in.</p>
+          </div>
+          <span className="option-go">
+            Open Results <Icon name="arrow" width={16} height={16} />
+          </span>
+        </Link>
         <p className="body index-foot">
           Numbers shown in the product views come from a demo store and are illustrative. Forms are for preview only and do not send anything.
         </p>

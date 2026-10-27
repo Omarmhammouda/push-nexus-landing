@@ -10,6 +10,7 @@ import Index from './pages/Index'
 import OptionA from './pages/OptionA'
 import OptionB from './pages/OptionB'
 import OptionC from './pages/OptionC'
+import Results from './pages/Results'
 import { StageBar } from './components/StageBar'
 
 function ScrollTop() {
@@ -47,6 +48,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/a" element={<OptionA />} />
         <Route path="/b" element={<OptionB />} />
         <Route path="/c" element={<OptionC />} />
+        <Route path="/results" element={<Results />} />
         <Route path="*" element={<Index />} />
       </Routes>
     </HashRouter>
