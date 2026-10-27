@@ -12,8 +12,8 @@ const links = [
   { label: 'The product', href: '#/a' },
 ]
 
-function SampleTag() {
-  return <span className="sample-tag">Sample story</span>
+function SampleTag({ label = 'Sample story' }: { label?: string }) {
+  return <span className="sample-tag">{label}</span>
 }
 
 function MerChart() {
@@ -136,7 +136,10 @@ export default function Results() {
 
       <section className="section" id="stories">
         <div className="container" style={{ display: 'grid', gap: 48 }}>
-          <SectionHead kicker="More results" title="Different stores. The same morning habit." center />
+          <div className="r-stories-head">
+            <SectionHead kicker="More results" title="Different stores. The same morning habit." center />
+            <SampleTag label="Sample stories" />
+          </div>
           <div className="grid-3 r-grid">
             {results.stories.map((s, i) => (
               <Reveal key={s.brand} delay={i * 90} className="card r-card">
@@ -155,10 +158,7 @@ export default function Results() {
                 </div>
                 <h3>{s.title}</h3>
                 <p className="body">{s.body}</p>
-                <div className="r-card-foot">
-                  <span className="r-card-plats">{s.platforms.join(' · ')}</span>
-                  <SampleTag />
-                </div>
+                <span className="r-card-plats">{s.platforms.join(' · ')}</span>
               </Reveal>
             ))}
           </div>
