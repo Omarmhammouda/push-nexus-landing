@@ -22,6 +22,16 @@ npm run build
 
 `wrangler.jsonc` + `worker/` are an alternative Workers setup if you ever want `npx wrangler deploy` instead.
 
+## Editing copy (Sanity)
+
+All page text is editable in Sanity Studio: **https://push-nexus.sanity.studio** (project `jubvblnz`, dataset `production`, org Push Analytics).
+
+- Open a section in the sidebar (Hero headlines, Push Nexus AI, Before / after, Results page, Result story…), edit, and press **Publish**. The live site picks it up on the next page load, usually within a minute (Sanity CDN cache).
+- Result stories are their own documents: add, remove or reorder them with **Sort order** (lower shows first).
+- On the Results page, clear **Sample notice** once every story is real. That also removes the "Sample story" labels.
+- `src/sanity.ts` fetches published copy at startup and merges it over `src/content.ts`. If Sanity is slow (over 2.5s) or unreachable, the site renders with the copy in `content.ts`, so keep that file as the fallback.
+- The schema is MCP-managed (deployed through the Sanity MCP, no local Studio folder). Allowed origins: hubcitystudio.com, www, pushnexus-preview.pages.dev, localhost:4173/5173.
+
 ## Run it
 
 ```bash

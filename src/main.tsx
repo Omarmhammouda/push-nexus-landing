@@ -12,6 +12,7 @@ import OptionB from './pages/OptionB'
 import OptionC from './pages/OptionC'
 import Results from './pages/Results'
 import { StageBar } from './components/StageBar'
+import { loadContent } from './sanity'
 
 function ScrollTop() {
   const { pathname } = useLocation()
@@ -38,19 +39,24 @@ function ScrollTop() {
   return null
 }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <HashRouter>
-      <ScrollTop />
-      <StageBar />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/a" element={<OptionA />} />
-        <Route path="/b" element={<OptionB />} />
-        <Route path="/c" element={<OptionC />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="*" element={<Index />} />
-      </Routes>
-    </HashRouter>
-  </StrictMode>,
-)
+function render() {
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <HashRouter>
+        <ScrollTop />
+        <StageBar />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/a" element={<OptionA />} />
+          <Route path="/b" element={<OptionB />} />
+          <Route path="/c" element={<OptionC />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="*" element={<Index />} />
+        </Routes>
+      </HashRouter>
+    </StrictMode>,
+  )
+}
+
+// Copy comes from Sanity when it answers quickly, otherwise from content.ts.
+loadContent().finally(render)

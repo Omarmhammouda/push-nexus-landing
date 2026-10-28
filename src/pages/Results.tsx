@@ -13,6 +13,7 @@ const links = [
 ]
 
 function SampleTag({ label = 'Sample story' }: { label?: string }) {
+  if (!results.sampleNote) return null
   return <span className="sample-tag">{label}</span>
 }
 
@@ -70,9 +71,11 @@ export default function Results() {
               </div>
             ))}
           </dl>
-          <p className="sample-note">
-            <Icon name="shield" width={14} height={14} /> {results.sampleNote}
-          </p>
+          {results.sampleNote && (
+            <p className="sample-note">
+              <Icon name="shield" width={14} height={14} /> {results.sampleNote}
+            </p>
+          )}
         </div>
       </header>
 
@@ -142,7 +145,7 @@ export default function Results() {
           </div>
           <div className="grid-3 r-grid">
             {results.stories.map((s, i) => (
-              <Reveal key={s.brand} delay={i * 90} className="card r-card">
+              <Reveal key={s.brand + i} delay={i * 90} className="card r-card">
                 <div className="r-card-top">
                   <span className="r-mark sm">{s.brand[0]}</span>
                   <div>
