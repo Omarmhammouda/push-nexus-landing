@@ -5,13 +5,6 @@ import { SectionHead } from '../components/Sections'
 import { hero, results } from '../content'
 import { Gradient, Nexus } from '../three/Lazy'
 
-const links = [
-  { label: 'Featured', href: '#featured' },
-  { label: 'More results', href: '#stories' },
-  { label: 'How we measure', href: '#measure' },
-  { label: 'The product', href: '#/a' },
-]
-
 function SampleTag({ label = 'Sample story' }: { label?: string }) {
   if (!results.sampleNote) return null
   return <span className="sample-tag">{label}</span>
@@ -51,7 +44,7 @@ export default function Results() {
   const f = results.featured
   return (
     <div className="page page-results">
-      <Nav links={links} />
+      <Nav />
 
       <header className="hero-r">
         <Gradient preset="dawn" className="hero-a-gradient fade-bottom" />

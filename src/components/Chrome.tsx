@@ -1,13 +1,17 @@
-import { useEffect, useRef, type ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Glass } from './Glass'
 import { Brand } from './Logo'
 import { Icon } from './Icons'
 import { nav, footer, platforms, platformsNote } from '../content'
 
 export function Nav({ dark = false, links = nav }: { dark?: boolean; links?: { label: string; href: string }[] }) {
+  const { pathname } = useLocation()
+  const [open, setOpen] = useState(false)
+  useEffect(() => setOpen(false), [pathname])
+  const current = (href: string) => (href === `#${pathname}` ? 'page' : undefined)
   return (
-    <div className="nav-wrap">
+    <div className={`nav-wrap ${open ? 'is-open' : ''}`}>
       <Glass
         className="nav-glass"
         radius={16}
@@ -23,7 +27,7 @@ export function Nav({ dark = false, links = nav }: { dark?: boolean; links?: { l
           </Link>
           <div className="nav-links">
             {links.map((l) => (
-              <a key={l.href} href={l.href} aria-current={l.href === '#/results' && location.hash.startsWith('#/results') ? 'page' : undefined}>
+              <a key={l.href} href={l.href} aria-current={current(l.href)}>
                 {l.label}
               </a>
             ))}
@@ -32,9 +36,21 @@ export function Nav({ dark = false, links = nav }: { dark?: boolean; links?: { l
             <a className="btn btn-primary" href="#access">
               Request access
             </a>
+            <button className="nav-menu-btn" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="nav-sheet" onClick={() => setOpen((o) => !o)}>
+              <span />
+              <span />
+            </button>
           </div>
         </nav>
       </Glass>
+      <div id="nav-sheet" className="nav-sheet" hidden={!open}>
+        {links.map((l) => (
+          <a key={l.href} href={l.href} aria-current={current(l.href)} onClick={() => setOpen(false)}>
+            {l.label}
+            <Icon name="arrow" width={16} height={16} />
+          </a>
+        ))}
+      </div>
     </div>
   )
 }

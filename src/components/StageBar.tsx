@@ -1,11 +1,20 @@
 import { Link, useLocation } from 'react-router-dom'
 import { directions } from '../pages/Index'
 
+const pageTitles: Record<string, string> = {
+  '/product': 'Product',
+  '/ai': 'Push Nexus AI',
+  '/method': 'The method',
+  '/how-it-works': 'How it works',
+  '/who': "Who it's for",
+  '/results': 'Results',
+}
+
 /** Floating review switcher shown on each direction while the client is reviewing. */
 export function StageBar() {
   const { pathname } = useLocation()
-  const isResults = pathname === '/results'
-  const current = isResults ? { title: 'Results' } : directions.find((d) => d.to === pathname)
+  const page = pageTitles[pathname]
+  const current = page ? { title: page } : directions.find((d) => d.to === pathname)
   if (!current) return null
   return (
     <nav className="stage-bar" aria-label="Review directions">

@@ -8,6 +8,7 @@ Three landing page directions for Push Nexus, built with React + Vite. They shar
 | `#/b` | **Request-Access Led** (dark) | The Push Nexus mark rebuilt in 3D: platforms orbit the hub and data pulses flow into it. Glass email capture, product grid, ember gradient CTA. |
 | `#/c` | **Audience & Access-Led** | Glass access form floating over a ShaderGradient orb, brands/agencies tabs, metric definitions, animated pacing card. |
 | `#/` | Index | Picks between the three. |
+| `#/product` `#/ai` `#/method` `#/how-it-works` `#/who` `#/results` | Site pages | The nav links. Full pages shared by all three directions (`src/pages/site/`, `src/pages/Results.tsx`). |
 
 ## Staging
 
@@ -26,7 +27,7 @@ npm run build
 
 All page text is editable in Sanity Studio: **https://push-nexus.sanity.studio** (project `jubvblnz`, dataset `production`, org Push Analytics).
 
-- Open a section in the sidebar (Hero headlines, Push Nexus AI, Before / after, Results page, Result story…), edit, and press **Publish**. The live site picks it up on the next page load, usually within a minute (Sanity CDN cache).
+- Open a section in the sidebar (Hero headlines, Push Nexus AI, Before / after, Page: Product, Page: How it works, Results page, Result story…), edit, and press **Publish**. The live site picks it up on the next page load, usually within a minute (Sanity CDN cache).
 - Result stories are their own documents: add, remove or reorder them with **Sort order** (lower shows first).
 - On the Results page, clear **Sample notice** once every story is real. That also removes the "Sample story" labels.
 - `src/sanity.ts` fetches published copy at startup and merges it over `src/content.ts`. If Sanity is slow (over 2.5s) or unreachable, the site renders with the copy in `content.ts`, so keep that file as the fallback.

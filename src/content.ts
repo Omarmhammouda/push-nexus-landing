@@ -93,12 +93,11 @@ export const ai = {
 }
 
 export const nav = [
-  { label: 'Method', href: '#method' },
-  { label: 'AI', href: '#ai' },
-  { label: 'Views', href: '#views' },
-  { label: 'Product', href: '#product' },
-  { label: 'How it works', href: '#how' },
-  { label: "Who it's for", href: '#who' },
+  { label: 'Product', href: '#/product' },
+  { label: 'AI', href: '#/ai' },
+  { label: 'Method', href: '#/method' },
+  { label: 'How it works', href: '#/how-it-works' },
+  { label: "Who it's for", href: '#/who' },
   { label: 'Results', href: '#/results' },
 ]
 
@@ -355,4 +354,133 @@ export const results = {
     ],
   },
   closing: { title: 'Your store could be the next one here.', lede: 'Tell us which platforms you run and we will get you connected.' },
+}
+
+/* ---------------- Individual pages ----------------
+ * Every claim here restates something already on Push Nexus's own site.
+ */
+export const pages = {
+  product: {
+    hero: {
+      eyebrow: 'Product',
+      titleLead: 'Every channel, measured one way,',
+      titleAccent: 'on one screen.',
+      lede: 'Push Nexus joins Meta, TikTok, Google Ads, GA4, Shopify and Klaviyo into one dashboard, with the same definitions on every view and one date filter that moves them all.',
+    },
+    filter: {
+      kicker: 'One filter, every view',
+      title: 'Pick the dates once. Every screen follows.',
+      lede: 'One shared date filter runs across the dashboard, ads, countries and the daily snapshot, so you never compare numbers from two different ranges.',
+      points: [
+        'Any start and end date',
+        'Rows by day, week, month or year',
+        'Against the previous period or the same dates last year',
+        'Shopify sales channels in or out, with traffic and spend held fixed',
+      ],
+    },
+    sources: {
+      kicker: 'What each source adds',
+      title: 'Each platform does one job. Push Nexus joins them.',
+      items: [
+        { name: 'Meta, TikTok, Google Ads', role: 'Spend, and every ad with its purchases and cost per purchase' },
+        { name: 'Shopify', role: 'Sales, orders, sales channels and the buyer’s country' },
+        { name: 'GA4', role: 'Sessions, so conversion rate reflects real store traffic' },
+        { name: 'Klaviyo', role: 'Campaign and flow revenue, next to the ad spend' },
+        { name: 'Custom source', role: 'Daily numbers from Pinterest, Snapchat or anything else you track' },
+      ],
+    },
+  },
+  ai: {
+    hero: {
+      eyebrow: 'Push Nexus AI',
+      titleLead: 'The analyst that has read',
+      titleAccent: 'your whole store by 7 AM.',
+      lede: 'Push Nexus AI goes through every channel, ad and order overnight, explains what moved and why, and writes the call for today. An operator reviews it before it reaches you.',
+    },
+    flow: {
+      kicker: 'How a brief comes together',
+      title: 'From raw numbers to one clear call.',
+      steps: [
+        { n: '01', title: 'Read', body: 'Overnight, it pulls yesterday from every connected source: spend, sales, orders, sessions and every ad.' },
+        { n: '02', title: 'Explain', body: 'It measures the day against your target and traces any move in MER, conversion rate or AOV to the channel, country or creative behind it.' },
+        { n: '03', title: 'Recommend', body: 'It writes the call for today: where to add spend, where to pull it, and which ads to scale or cut.' },
+        { n: '04', title: 'Review', body: 'An operator checks the brief before it goes out, so the call you read has had a second pair of eyes.' },
+      ],
+    },
+    guardrails: {
+      kicker: 'Guardrails',
+      title: 'It advises. You decide.',
+      items: [
+        { title: 'Read-only', body: 'Push Nexus reads your numbers. It never changes your ads, store or campaigns.' },
+        { title: 'Reviewed before it lands', body: 'Every brief is checked by an operator before it goes out.' },
+        { title: 'Same definitions as the dashboard', body: 'The brief uses the same MER, conversion rate and AOV you see on every screen, so the story and the numbers always match.' },
+      ],
+    },
+  },
+  method: {
+    hero: {
+      eyebrow: 'The method',
+      titleLead: 'Three habits that moved revenue,',
+      titleAccent: 'running every day.',
+      lede: 'Years of running paid media for Shopify brands came down to three habits. Push Nexus runs them across every channel, every morning, so you do not have to.',
+    },
+    habits: [
+      {
+        kicker: 'Habit 01',
+        inPractice: [
+          'Tiers scale with the size of the account',
+          'Top tier: selling at volume, at or under the account average cost per purchase',
+          'Meta, TikTok and Klaviyo ranked on one grid',
+        ],
+      },
+      {
+        kicker: 'Habit 02',
+        inPractice: [
+          'A revenue and MER target for the month, set in plain terms',
+          'Promo days can carry their own target',
+          'Ahead or behind, by how much, and what today has to do',
+        ],
+      },
+      {
+        kicker: 'Habit 03',
+        inPractice: [
+          'Blended MER above target means budget you can spend today',
+          'Below target means budget to pull today',
+          'Surfaced every morning, not at the monthly review',
+        ],
+      },
+    ],
+  },
+  how: {
+    hero: {
+      eyebrow: 'How it works',
+      titleLead: 'Connected in an afternoon.',
+      titleAccent: 'Smarter by the next morning.',
+      lede: 'Sign in to each platform through its own login, pick the accounts you want, and Push Nexus does the rest: syncing every day, with history backfilled.',
+    },
+    faq: {
+      kicker: 'Questions',
+      title: 'What people ask before they connect.',
+      items: [
+        { q: 'Can Push Nexus change my ads or store?', a: 'No. Connections are read-only. Push Nexus reads your numbers and never changes your ads, store or campaigns.' },
+        { q: 'Do you store my passwords?', a: 'No. You sign in to each platform through its own official login (OAuth). No passwords are stored.' },
+        { q: 'Which platforms can I connect?', a: 'Meta, TikTok, Google Ads, GA4, Shopify and Klaviyo, plus a custom source for daily numbers from anything else you track, such as Pinterest or Snapchat.' },
+        { q: 'Will I see my past data?', a: 'Yes. History is backfilled when you connect, so comparisons to last period and last year work from day one.' },
+        { q: 'How do I disconnect a source?', a: 'Disconnect it in Push Nexus at any time. Its token is gone the moment you do.' },
+        { q: 'Why will the numbers match Shopify?', a: 'Sales and orders come straight from Shopify, and every view uses the same definitions, so what you see matches what your store reports.' },
+      ],
+    },
+  },
+  who: {
+    hero: {
+      eyebrow: "Who it's for",
+      titleLead: 'Built for the people who',
+      titleAccent: 'answer for the numbers.',
+      lede: 'Shopify brands that want one honest read on the business each morning, and the agencies that run paid media for them.',
+    },
+    morning: [
+      { audience: 'brands', kicker: 'A morning for a brand', title: 'One look tells you whether today needs anything.', body: 'Open the dashboard and the first thing you read is ahead or behind target. The daily snapshot says what moved and why, and the call for today is already written.' },
+      { audience: 'agencies', kicker: 'A morning for an agency', title: 'Every client, one login, the same definitions.', body: 'Move between client stores without rebuilding a report. Any date range, compared to last period or last year, in seconds, with numbers that match what each client sees in Shopify.' },
+    ],
+  },
 }

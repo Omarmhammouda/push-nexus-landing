@@ -27,6 +27,11 @@ const QUERY = `{
   "closing": ${one('closingSection')},
   "footer": ${one('siteSettings')}.footer,
   "results": ${one('resultsPage')},
+  "productPage": ${one('productPage')},
+  "aiPage": ${one('aiPage')},
+  "methodPage": ${one('methodPage')},
+  "howPage": ${one('howPage')},
+  "whoPage": ${one('whoPage')},
   "stories": *[_type == "resultStory"] | order(coalesce(order, 999) asc, _createdAt asc){brand, category, stat, statLabel, title, body, platforms}
 }`
 
@@ -94,6 +99,11 @@ export async function loadContent(timeoutMs = 2500) {
     merge(c.closing, r.closing)
     merge(c.footer, r.footer)
     if (r.results) merge(c.results, r.results)
+    merge(c.pages.product, r.productPage)
+    merge(c.pages.ai, r.aiPage)
+    merge(c.pages.method, r.methodPage)
+    merge(c.pages.how, r.howPage)
+    merge(c.pages.who, r.whoPage)
     if (Array.isArray(r.stories) && r.stories.length) c.results.stories = r.stories
     // An emptied sample notice means the stories are real: hide the notice and tags.
     if (r.results && empty(r.results.sampleNote)) c.results.sampleNote = ''

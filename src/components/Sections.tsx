@@ -48,14 +48,14 @@ export function Contrast({ alt = false }: { alt?: boolean }) {
 }
 
 /* ---------------- Push Nexus AI ---------------- */
-export function AISection({ alt = false }: { alt?: boolean }) {
+export function AISection({ alt = false, head = true }: { alt?: boolean; head?: boolean }) {
   const [ref, seen] = useInView<HTMLDivElement>(0.15)
   const b = ai.brief
   return (
     <section className={`section ${alt ? 'alt' : ''}`} id="ai">
       <div className="container ai-wrap">
         <div className="ai-copy">
-          <SectionHead kicker={ai.kicker} title={ai.title} lede={ai.lede} />
+          {head && <SectionHead kicker={ai.kicker} title={ai.title} lede={ai.lede} />}
           <ul className="ai-caps">
             {ai.capabilities.map((c, i) => (
               <Reveal as="li" key={c.title} delay={i * 80} className="ai-cap">
@@ -265,11 +265,11 @@ export function ProductGrid() {
 }
 
 /* ---------------- How it works ---------------- */
-export function HowItWorks({ alt = false }: { alt?: boolean }) {
+export function HowItWorks({ alt = false, head = true }: { alt?: boolean; head?: boolean }) {
   return (
     <section className={`section ${alt ? 'alt' : ''}`} id="how">
       <div className="container" style={{ display: 'grid', gap: 56 }}>
-        <SectionHead kicker={how.kicker} title={how.title} center />
+        {head && <SectionHead kicker={how.kicker} title={how.title} center />}
         <div className="steps">
           {how.steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 100} className="step">
@@ -338,7 +338,7 @@ export function WhoTabs() {
                 <li key={p}>{p}</li>
               ))}
             </ul>
-            <a className="btn btn-lg" href="#method" style={{ justifySelf: 'start', marginTop: 8 }}>
+            <a className="btn btn-lg" href="#/method" style={{ justifySelf: 'start', marginTop: 8 }}>
               {hero.secondary} <Icon name="arrow" className="arrow" width={16} height={16} />
             </a>
           </div>

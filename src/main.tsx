@@ -11,6 +11,11 @@ import OptionA from './pages/OptionA'
 import OptionB from './pages/OptionB'
 import OptionC from './pages/OptionC'
 import Results from './pages/Results'
+import ProductPage from './pages/site/ProductPage'
+import AIPage from './pages/site/AIPage'
+import MethodPage from './pages/site/MethodPage'
+import HowPage from './pages/site/HowPage'
+import WhoPage from './pages/site/WhoPage'
 import { StageBar } from './components/StageBar'
 import { loadContent } from './sanity'
 
@@ -51,6 +56,11 @@ function render() {
           <Route path="/b" element={<OptionB />} />
           <Route path="/c" element={<OptionC />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/ai" element={<AIPage />} />
+          <Route path="/method" element={<MethodPage />} />
+          <Route path="/how-it-works" element={<HowPage />} />
+          <Route path="/who" element={<WhoPage />} />
           <Route path="*" element={<Index />} />
         </Routes>
       </HashRouter>
