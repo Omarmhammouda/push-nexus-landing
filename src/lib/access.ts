@@ -1,6 +1,8 @@
 /**
  * Sends a request-access submission by email through FormSubmit (formsubmit.co),
- * the same setup as the Bodysculpt site. Goes to Hamdy, with Moustafa copied.
+ * the same service as the Bodysculpt site. Goes to Hamdy, with Moustafa copied.
+ * On pushnexus.ai the site's Worker relays it (POST /api/access), so the visitor's
+ * browser never has to talk to FormSubmit directly. Elsewhere it posts to FormSubmit.
  * The first submission sends FormSubmit's one-time "Activate Form" email to Hamdy's inbox.
  */
 export type AccessRequest = {
@@ -18,6 +20,25 @@ const CC = 'moustafa@pushanalytics.com'
 
 export async function sendAccessRequest(req: AccessRequest): Promise<{ ok: boolean; error?: string }> {
   if (req.company_website?.trim()) return { ok: true } // bot filled the trap: pretend it worked
+  // Preferred path: the site's own relay.
+  try {
+    const res = await fetch('/api/access', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...req, page: location.pathname }),
+    })
+    if (res.status !== 404 && res.status !== 405 && (res.headers.get('content-type') ?? '').includes('json')) {
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string }
+      return data.ok ? { ok: true } : { ok: false, error: data.error ?? `Error ${res.status}` }
+    }
+  } catch {
+    /* fall through to direct FormSubmit */
+  }
+  return sendDirect(req)
+}
+
+/** Direct to FormSubmit, for hosts without the relay (preview copies). */
+async function sendDirect(req: AccessRequest): Promise<{ ok: boolean; error?: string }> {
   const name = (req.name ?? '').trim()
   const email = req.email.trim()
   // Readable email: FormSubmit renders these fields as a table.
