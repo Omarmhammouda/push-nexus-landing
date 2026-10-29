@@ -411,7 +411,13 @@ export function InlineAccess({ dark = false, id }: { dark?: boolean; id?: string
     <Glass className="inline-access" radius={14} strength={20} tint={dark ? 30 : 60} blur={4} depth={12}>
       {status === 'sent' ? (
         <div className="sent" role="status">
-          <Icon name="shield" /> Thanks. We will get you connected.
+          <span className="sent-icon">
+            <Icon name="shield" />
+          </span>
+          <span className="sent-text">
+            <strong>Thank you! Your request is in.</strong>
+            <span>We’ll be in touch within 24 hours to get you connected.</span>
+          </span>
         </div>
       ) : (
         <>
@@ -459,9 +465,9 @@ export function AccessCard() {
               <Icon name="shield" />
             </span>
             <h3 className="h3" style={{ fontSize: 22 }}>
-              Request received.
+              Thank you! Your request is in.
             </h3>
-            <p className="body">We will reach out to get {picked.length ? picked.join(', ') : 'your platforms'} connected.</p>
+            <p className="body">We’ll be in touch within 24 hours to get {picked.length ? new Intl.ListFormat('en', { type: 'conjunction' }).format(picked) : 'your platforms'} connected.</p>
           </div>
         ) : (
           <form onSubmit={submit} style={{ display: 'grid', gap: 12 }}>
