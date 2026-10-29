@@ -1,5 +1,5 @@
 // Serves the built site, emails request-access submissions, and keeps non-production hosts out of search.
-const TO = 'hamdy@pushanalytics.com'
+const TO = ['hamdy@pushanalytics.com', 'moustafa@pushanalytics.com']
 const FROM = { email: 'access@pushnexus.ai', name: 'Push Nexus website' }
 const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
