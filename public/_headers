@@ -1,3 +1,5 @@
+# Staging copies (pages.dev, hubcitystudio.com) stay out of search.
+# pushnexus.ai is served through the Push Analytics Worker, which drops this header.
 /*
   X-Robots-Tag: noindex, nofollow
   Referrer-Policy: strict-origin-when-cross-origin

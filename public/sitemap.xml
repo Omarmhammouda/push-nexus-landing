@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://pushnexus.ai/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://pushnexus.ai/product</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pushnexus.ai/ai</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pushnexus.ai/method</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pushnexus.ai/how-it-works</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pushnexus.ai/who</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pushnexus.ai/results</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+</urlset>

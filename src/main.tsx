@@ -18,10 +18,48 @@ import HowPage from './pages/site/HowPage'
 import WhoPage from './pages/site/WhoPage'
 import { loadContent } from './sanity'
 
+const SITE = 'https://pushnexus.ai'
+const TITLES: Record<string, string> = {
+  '/': 'Push Nexus — The AI operating system for ecommerce',
+  '/b': 'Push Nexus — The brain behind your Shopify store',
+  '/c': 'Push Nexus — One brain for every store you run',
+  '/product': 'Product — Push Nexus',
+  '/ai': 'Push Nexus AI — Your morning brief, written overnight',
+  '/method': 'The method — Push Nexus',
+  '/how-it-works': 'How it works — Push Nexus',
+  '/who': "Who it's for — Push Nexus",
+  '/results': 'Results — Client case studies | Push Nexus',
+  '/options': 'Landing page directions — Push Nexus',
+}
+
+/** Title, canonical URL and robots tag for each page. B and C are versions of the home page. */
+function setHead(pathname: string) {
+  document.title = TITLES[pathname] ?? TITLES['/']
+  const canonicalPath = pathname === '/b' || pathname === '/c' ? '/' : pathname
+  let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+  if (!link) {
+    link = document.createElement('link')
+    link.rel = 'canonical'
+    document.head.appendChild(link)
+  }
+  link.href = SITE + canonicalPath
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', SITE + canonicalPath)
+  let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]')
+  if (pathname === '/options') {
+    if (!robots) {
+      robots = document.createElement('meta')
+      robots.name = 'robots'
+      document.head.appendChild(robots)
+    }
+    robots.content = 'noindex, nofollow'
+  } else robots?.remove()
+}
+
 function ScrollTop() {
   const { pathname } = useLocation()
   useEffect(() => {
     window.scrollTo(0, 0)
+    setHead(pathname)
   }, [pathname])
   // In-page links (#method, #access…) scroll instead of changing the hash route.
   useEffect(() => {
