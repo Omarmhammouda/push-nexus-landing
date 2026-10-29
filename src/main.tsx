@@ -1,6 +1,6 @@
 import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import '@liquidglassjs/core/css'
 import './styles/tokens.css'
 import './styles/base.css'
@@ -16,7 +16,6 @@ import AIPage from './pages/site/AIPage'
 import MethodPage from './pages/site/MethodPage'
 import HowPage from './pages/site/HowPage'
 import WhoPage from './pages/site/WhoPage'
-import { StageBar } from './components/StageBar'
 import { loadContent } from './sanity'
 
 function ScrollTop() {
@@ -29,7 +28,7 @@ function ScrollTop() {
     const onClick = (e: MouseEvent) => {
       const a = (e.target as HTMLElement).closest('a')
       const href = a?.getAttribute('href')
-      if (!href || !href.startsWith('#') || href.startsWith('#/')) return
+      if (!href || !href.startsWith('#') || href.length < 2) return
       e.preventDefault()
       const el = document.getElementById(href.slice(1))
       if (el) {
@@ -44,15 +43,21 @@ function ScrollTop() {
   return null
 }
 
+// Old review links used #/b style addresses. Send them to the real path.
+if (location.hash.startsWith('#/')) {
+  const path = location.hash.slice(1) === '/a' ? '/' : location.hash.slice(1)
+  history.replaceState(null, '', path)
+}
+
 function render() {
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
-      <HashRouter>
+      <BrowserRouter>
         <ScrollTop />
-        <StageBar />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/a" element={<OptionA />} />
+          <Route path="/" element={<OptionA />} />
+          <Route path="/a" element={<Navigate to="/" replace />} />
+          <Route path="/options" element={<Index />} />
           <Route path="/b" element={<OptionB />} />
           <Route path="/c" element={<OptionC />} />
           <Route path="/results" element={<Results />} />
@@ -61,9 +66,9 @@ function render() {
           <Route path="/method" element={<MethodPage />} />
           <Route path="/how-it-works" element={<HowPage />} />
           <Route path="/who" element={<WhoPage />} />
-          <Route path="*" element={<Index />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </StrictMode>,
   )
 }

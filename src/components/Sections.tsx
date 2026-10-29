@@ -2,11 +2,11 @@ import { GlassLoupe } from '@liquidglassjs/react'
 import { useState, type FormEvent } from 'react'
 import { Glass } from './Glass'
 import { Icon, type IconName } from './Icons'
-import { Reveal, TrustNote } from './Chrome'
+import { Reveal, SmartLink, TrustNote } from './Chrome'
 import { CountUp, useInView } from './CountUp'
 import { ai, closing, contrast, hero, how, method, numbers, platforms, product, security, views, viewsHead, who, type ViewKey } from '../content'
 
-const shot = (k: ViewKey) => `./views/${k}.jpg`
+const shot = (k: ViewKey) => `/views/${k}.jpg`
 
 export function SectionHead({ kicker, title, lede, center = false }: { kicker: string; title: string; lede?: string; center?: boolean }) {
   return (
@@ -338,9 +338,9 @@ export function WhoTabs() {
                 <li key={p}>{p}</li>
               ))}
             </ul>
-            <a className="btn btn-lg" href="#/method" style={{ justifySelf: 'start', marginTop: 8 }}>
+            <SmartLink className="btn btn-lg" href="/method" style={{ justifySelf: 'start', marginTop: 8 }}>
               {hero.secondary} <Icon name="arrow" className="arrow" width={16} height={16} />
-            </a>
+            </SmartLink>
           </div>
           <div className="shot fade-in">
             <img src={shot(a.view)} alt={views.find((v) => v.key === a.view)!.alt} loading="lazy" width={1400} height={851} />

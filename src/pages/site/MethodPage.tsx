@@ -35,7 +35,7 @@ export default function MethodPage() {
                 )}
               </Reveal>
               <Reveal delay={120} className="shot">
-                <img src={`./views/${h.view}.jpg`} alt={v?.alt ?? ''} loading="lazy" width={1400} height={851} />
+                <img src={`/views/${h.view}.jpg`} alt={v?.alt ?? ''} loading="lazy" width={1400} height={851} />
               </Reveal>
             </div>
           </section>

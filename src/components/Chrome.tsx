@@ -1,15 +1,21 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Glass } from './Glass'
 import { Brand } from './Logo'
 import { Icon } from './Icons'
 import { nav, footer, platforms, platformsNote } from '../content'
 
+/** Router link for site paths ("/product"), plain anchor for in-page or external links. */
+export function SmartLink({ href, children, ...rest }: { href: string; children: ReactNode; className?: string; style?: CSSProperties; onClick?: () => void; 'aria-current'?: 'page' }) {
+  if (href.startsWith('/')) return <Link to={href} {...rest}>{children}</Link>
+  return <a href={href} {...rest}>{children}</a>
+}
+
 export function Nav({ dark = false, links = nav }: { dark?: boolean; links?: { label: string; href: string }[] }) {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
   useEffect(() => setOpen(false), [pathname])
-  const current = (href: string) => (href === `#${pathname}` ? 'page' : undefined)
+  const current = (href: string) => (href === pathname ? 'page' : undefined)
   return (
     <div className={`nav-wrap ${open ? 'is-open' : ''}`}>
       <Glass
@@ -27,9 +33,9 @@ export function Nav({ dark = false, links = nav }: { dark?: boolean; links?: { l
           </Link>
           <div className="nav-links">
             {links.map((l) => (
-              <a key={l.href} href={l.href} aria-current={current(l.href)}>
+              <SmartLink key={l.href} href={l.href} aria-current={current(l.href)}>
                 {l.label}
-              </a>
+              </SmartLink>
             ))}
           </div>
           <div className="nav-right">
@@ -45,10 +51,10 @@ export function Nav({ dark = false, links = nav }: { dark?: boolean; links?: { l
       </Glass>
       <div id="nav-sheet" className="nav-sheet" hidden={!open}>
         {links.map((l) => (
-          <a key={l.href} href={l.href} aria-current={current(l.href)} onClick={() => setOpen(false)}>
+          <SmartLink key={l.href} href={l.href} aria-current={current(l.href)} onClick={() => setOpen(false)}>
             {l.label}
             <Icon name="arrow" width={16} height={16} />
-          </a>
+          </SmartLink>
         ))}
       </div>
     </div>

@@ -4,7 +4,7 @@ import { Icon } from '../components/Icons'
 
 export const directions = [
   {
-    to: '/a',
+    to: '/',
     letter: 'A',
     title: 'Dashboard-First',
     headline: 'The operating system for your ecommerce store.',
@@ -58,7 +58,7 @@ export default function Index() {
                 {o.best}
               </p>
               <span className="option-go">
-                Open direction {o.letter} <Icon name="arrow" width={16} height={16} />
+                Open {o.to === '/' ? 'pushnexus.ai' : `pushnexus.ai${o.to}`} <Icon name="arrow" width={16} height={16} />
               </span>
             </Link>
           ))}

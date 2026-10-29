@@ -2,13 +2,15 @@
 
 Three landing page directions for Push Nexus, built with React + Vite. They share one brand system lifted from Push Nexus's own site: colors, Inter + JetBrains Mono, the hub-and-nodes logo, copy and product screenshots.
 
-| Route | Direction | Highlights |
-| --- | --- | --- |
-| `#/a` | **Dashboard-First** | Live dashboard in a liquid-glass bezel over a warm ShaderGradient. 3D network behind the closing CTA. |
-| `#/b` | **Request-Access Led** (dark) | The Push Nexus mark rebuilt in 3D: platforms orbit the hub and data pulses flow into it. Glass email capture, product grid, ember gradient CTA. |
-| `#/c` | **Audience & Access-Led** | Glass access form floating over a ShaderGradient orb, brands/agencies tabs, metric definitions, animated pacing card. |
-| `#/` | Index | Picks between the three. |
-| `#/product` `#/ai` `#/method` `#/how-it-works` `#/who` `#/results` | Site pages | The nav links. Full pages shared by all three directions (`src/pages/site/`, `src/pages/Results.tsx`). |
+| Link | Page |
+| --- | --- |
+| `pushnexus.ai/` | **Direction A**, Dashboard-First (the main landing page) |
+| `pushnexus.ai/b` | **Direction B**, Request-Access Led (dark) |
+| `pushnexus.ai/c` | **Direction C**, Audience & Access-Led |
+| `/product` `/ai` `/method` `/how-it-works` `/who` `/results` | Full pages linked from the nav, shared by all three |
+| `/options` | Internal review page comparing the three directions |
+
+Real paths (BrowserRouter) with an SPA fallback: Pages and the Worker serve `index.html` for unknown paths. Old `#/b` links redirect to `/b`.
 
 ## Staging
 

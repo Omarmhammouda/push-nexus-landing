@@ -40,7 +40,7 @@ export default function WhoPage() {
                 )}
               </Reveal>
               <Reveal delay={120} className="shot">
-                <img src={`./views/${a.view}.jpg`} alt={v?.alt ?? ''} loading="lazy" width={1400} height={851} />
+                <img src={`/views/${a.view}.jpg`} alt={v?.alt ?? ''} loading="lazy" width={1400} height={851} />
               </Reveal>
             </div>
           </section>
@@ -51,7 +51,7 @@ export default function WhoPage() {
       <section className="section tight" style={{ textAlign: 'center' }}>
         <div className="container" style={{ display: 'grid', gap: 18, justifyItems: 'center' }}>
           <p className="lede">See what that looks like for real stores.</p>
-          <HeroButtons secondary={{ label: 'View results', href: '#/results' }} />
+          <HeroButtons secondary={{ label: 'View results', href: '/results' }} />
         </div>
       </section>
     </PageShell>

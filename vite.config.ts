@@ -1,9 +1,9 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// Relative base so the build works from any folder or static host.
+// Absolute base: the site uses real paths (/b, /product…), served with an SPA fallback.
 export default defineConfig({
-  base: './',
+  base: '/',
   plugins: [react()],
   build: {
     chunkSizeWarningLimit: 1600,

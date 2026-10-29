@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Eyebrow, Footer, Nav, Reveal } from './Chrome'
+import { Eyebrow, Footer, Nav, Reveal, SmartLink } from './Chrome'
 import { Icon } from './Icons'
 import { InlineAccess } from './Sections'
 import { closing, hero } from '../content'
@@ -67,9 +67,9 @@ export function HeroButtons({ secondary }: { secondary?: { label: string; href: 
         {hero.primary} <Icon name="arrow" className="arrow" width={16} height={16} />
       </a>
       {secondary && (
-        <a className="btn btn-lg" href={secondary.href}>
+        <SmartLink className="btn btn-lg" href={secondary.href}>
           {secondary.label}
-        </a>
+        </SmartLink>
       )}
     </div>
   )

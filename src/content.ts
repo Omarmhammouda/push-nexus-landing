@@ -93,12 +93,12 @@ export const ai = {
 }
 
 export const nav = [
-  { label: 'Product', href: '#/product' },
-  { label: 'AI', href: '#/ai' },
-  { label: 'Method', href: '#/method' },
-  { label: 'How it works', href: '#/how-it-works' },
-  { label: "Who it's for", href: '#/who' },
-  { label: 'Results', href: '#/results' },
+  { label: 'Product', href: '/product' },
+  { label: 'AI', href: '/ai' },
+  { label: 'Method', href: '/method' },
+  { label: 'How it works', href: '/how-it-works' },
+  { label: "Who it's for", href: '/who' },
+  { label: 'Results', href: '/results' },
 ]
 
 export const platforms = [
