@@ -32,7 +32,7 @@ const QUERY = `{
   "methodPage": ${one('methodPage')},
   "howPage": ${one('howPage')},
   "whoPage": ${one('whoPage')},
-  "stories": *[_type == "resultStory"] | order(coalesce(order, 999) asc, _createdAt asc){brand, category, stat, statLabel, title, body, platforms}
+  "caseStudies": *[_type == "caseStudy"] | order(coalesce(order, 999) asc, _createdAt asc)
 }`
 
 type Obj = Record<string, unknown>
@@ -98,15 +98,21 @@ export async function loadContent(timeoutMs = 2500) {
     replaceArray(c.security, r.security)
     merge(c.closing, r.closing)
     merge(c.footer, r.footer)
-    if (r.results) merge(c.results, r.results)
+    if (r.results) merge(c.results, { hero: r.results.hero, measure: r.results.measure, closing: r.results.closing })
     merge(c.pages.product, r.productPage)
     merge(c.pages.ai, r.aiPage)
     merge(c.pages.method, r.methodPage)
     merge(c.pages.how, r.howPage)
     merge(c.pages.who, r.whoPage)
-    if (Array.isArray(r.stories) && r.stories.length) c.results.stories = r.stories
-    // An emptied sample notice means the stories are real: hide the notice and tags.
-    if (r.results && empty(r.results.sampleNote)) c.results.sampleNote = ''
+    // Case studies: Sanity replaces the list when it has any, matched to built-in ones by slug.
+    if (Array.isArray(r.caseStudies) && r.caseStudies.length) {
+      c.results.caseStudies = r.caseStudies.map((cs: Obj) => {
+        const base = c.results.caseStudies.find((x: Obj) => x.slug === (cs.slug as any)?.current || x.slug === cs.slug)
+        const out = mergeInto(JSON.parse(JSON.stringify(base ?? {})), cs)
+        if (isObj(out.slug)) out.slug = (out.slug as any).current
+        return out
+      })
+    }
     return true
   } catch (e) {
     console.info('[content] using built-in copy:', (e as Error).message)

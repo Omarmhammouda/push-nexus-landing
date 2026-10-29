@@ -67,7 +67,7 @@ export default function Index() {
           <div>
             <span className="kicker">Shared page · all directions</span>
             <h2 className="h3" style={{ fontSize: 20 }}>Results</h2>
-            <p className="body">Customer stories, laid out in the same system. The stories are samples until real client results come in.</p>
+            <p className="body">Client case studies (Veiled and First Stop Fashion) with a side index. Results shown as percentages only.</p>
           </div>
           <span className="option-go">
             Open Results <Icon name="arrow" width={16} height={16} />

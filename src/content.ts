@@ -273,74 +273,152 @@ export const footer = {
   email: 'hello@pushnexus.ai',
 }
 
-/* ---------------- Results page ----------------
- * SAMPLE CONTENT. Brands, people and numbers below are invented placeholders so
- * the layout can be reviewed. Replace every story with real, approved client
- * results before launch.
+/* ---------------- Results: client case studies ----------------
+ * From Push Analytics' own case study drafts. Revenue, spend, orders, dates and
+ * names are removed on purpose; only percentage changes are shown as proof.
+ * Get the client's written sign-off before publishing.
  */
-export const results = {
-  sampleNote: 'Sample stories with invented brands and numbers, shown to review the layout. Real client results go here before launch.',
+export type CaseStudy = {
+  slug: string
+  brand: string
+  category: string
+  channels: string[]
+  headline: string
+  summary: string
+  kpis: { value: string; label: string }[]
+  start: { title: string; body: string; points: string[] }
+  phases: { title: string; body: string }[]
+  highlights: { value: string; title: string; body: string }[]
+  growth: { label: string; note: string; bars: { label: string; value: number; current?: boolean }[] }
+  takeaways: { title: string; body: string }[]
+  measured: string[]
+}
+
+export const results: {
+  hero: { eyebrow: string; titleLead: string; titleAccent: string; lede: string; note: string }
+  caseStudies: CaseStudy[]
+  measure: { kicker: string; title: string; lede: string; items: { name: string; formula: string }[] }
+  closing: { title: string; lede: string }
+} = {
   hero: {
     eyebrow: 'Results',
-    titleLead: 'What changes when a store',
-    titleAccent: 'gets a brain.',
-    lede:
-      'Stores and agencies that run on Push Nexus, measured the way Push Nexus measures everything: blended MER, conversion rate and AOV, from Shopify and every ad platform at once.',
-    stats: [
-      { value: '+41%', label: 'median MER lift in 90 days' },
-      { value: '6 hrs', label: 'reporting saved per week' },
-      { value: '12 days', label: 'earlier to month target' },
-    ],
+    titleLead: 'Real brands. Real growth,',
+    titleAccent: 'measured one way.',
+    lede: 'How the team behind Push Nexus grew two very different fashion brands by running every budget call on the whole store, not on what each ad platform claims.',
+    note: 'To protect our clients, results are shown as percentage changes only. Every figure comes from Shopify and the ad platforms.',
   },
-  featured: {
-    brand: 'Northbound Outdoor',
-    category: 'Outdoor apparel · Shopify',
-    platforms: ['Meta', 'TikTok', 'Google Ads', 'Klaviyo'],
-    headline: 'From finding out at month end to moving spend every morning.',
-    before:
-      'Four ad managers, four versions of ROAS, and a spreadsheet rebuilt every Monday. Creatives were cut on gut feel, and a slow month only showed up once it was over.',
-    change:
-      'Every channel in one view, a revenue and MER target paced daily, and the AI morning brief. The team scaled top-tier ads each week and moved budget the day efficiency shifted.',
-    metrics: [
-      { label: 'Blended MER', from: '3.10x', to: '4.40x' },
-      { label: 'Conversion rate', from: '1.9%', to: '2.6%' },
-      { label: 'Monthly revenue', from: '$480K', to: '$662K' },
-    ],
-    chart: { label: 'Blended MER by month', months: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'], values: [3.1, 3.2, 3.6, 3.9, 4.2, 4.4], target: 4.0, startIndex: 2 },
-    timeline: [
-      { when: 'Week 1', what: 'Meta, TikTok, Google, GA4, Shopify and Klaviyo connected, with 12 months backfilled.' },
-      { when: 'Week 3', what: 'Two UGC ads hit the top tier on small spend. Budget scaled into them the same day.' },
-      { when: 'Month 2', what: 'The brief flagged Google Shopping running below target MER. 22% of it moved to Meta.' },
-      { when: 'Month 3', what: 'Hit the monthly revenue target 12 days early.' },
-    ],
-  },
-  stories: [
+  caseStudies: [
     {
-      brand: 'Lumen Skin',
-      category: 'Skincare · Shopify',
-      stat: '+0.7 pts',
-      statLabel: 'conversion rate',
-      title: 'The brief caught a checkout problem the ad platforms never would.',
-      body: 'Conversion rate slipped in Canada on mobile while every ad manager looked fine. The morning brief traced it to a checkout change, fixed within the week.',
-      platforms: ['Meta', 'Google Ads', 'GA4'],
+      slug: 'veiled',
+      brand: 'Veiled',
+      category: 'Modest fashion · Shopify',
+      channels: ['Meta', 'Google Ads'],
+      headline: 'Growing a modest fashion brand across four markets, at the same efficiency.',
+      summary: 'Veiled sells hijabs, abayas, dresses and sets online in the US, Canada, the UK and Australia. Push Analytics has run its paid media on Meta and Google from the early days, and every budget decision is made on blended MER: total store sales against total ad spend.',
+      kpis: [
+        { value: '+6,130%', label: 'Shopify sales vs. the year before we started' },
+        { value: '+39%', label: 'sales this year, with efficiency held steady' },
+        { value: '+297%', label: 'first day of the Members Sale, year over year' },
+      ],
+      start: {
+        title: 'Where Veiled started',
+        body: 'Most of the year’s sales landed in a single season around Ramadan and Eid. On Meta, no new campaigns had been launched in months, and the business leaned on a small base of loyal customers.',
+        points: ['Sales concentrated in one season', 'A paused Meta account', 'No Google Ads campaigns'],
+      },
+      phases: [
+        { title: 'From kickoff to a full funnel', body: 'The first campaigns went live for Veiled’s Eid sale, with daily reporting from day one. Audiences were split into cold, warm and hot groups so each saw its own message, Google Search and Shopping launched that autumn, and a VIP list was built ahead of Black Friday.' },
+        { title: 'Two years of tripling', body: 'Each of the first two full years with Push Analytics more than tripled sales, as Meta scaled and Google grew into a real second channel across Search and Shopping.' },
+        { title: 'Testing Performance Max, then moving back', body: 'When Google released Performance Max, most of the Google budget moved into it. Over time it moved back to standard Shopping and Search for control over which products and searches get budget. Shopping is now the largest Google line.' },
+        { title: 'One number for every budget call', body: 'Every decision is judged on blended MER, read every day. A daily report compares the previous day to target, says what moved and why, and lists the changes being made. Meta runs Advantage+ by country plus catalog and creator partnership ads; Google covers brand, Shopping and category search.' },
+        { title: 'The Members Sale', body: 'Veiled’s biggest event of the year went from almost no ad support to a full launch across every market: new campaigns built from Veiled’s own sale creative and creator videos, with Google budgets raised for the weekend. Budgets were reset every night from that day’s sales, stepping down as demand cooled.' },
+      ],
+      highlights: [
+        { value: '+6,130%', title: 'Sales growth since we started', body: 'Comparing the latest full year with the year before Push Analytics took over the ads.' },
+        { value: '+39% / +41%', title: 'Sales vs. spend this year', body: 'Ad spend rose about as fast as sales, and MER moved by just one percent. The extra spend paid back at the same rate as the existing spend.' },
+        { value: '+297%', title: 'Members Sale, first day', body: 'Year over year, with average order value up 25% and the first four days up 157%.' },
+        { value: '68%', title: 'Orders from returning customers', body: 'Up from 41% before we started, while new-customer orders still grew more than twentyfold.' },
+      ],
+      growth: {
+        label: 'Shopify sales, year over year',
+        note: 'Each bar is growth on the year before. The last bar is this year to date.',
+        bars: [
+          { label: 'Yr 1', value: 377 },
+          { label: 'Yr 2', value: 145 },
+          { label: 'Yr 3', value: 102 },
+          { label: 'Yr 4', value: 27 },
+          { label: 'Yr 5', value: 25 },
+          { label: 'Yr 6', value: 8 },
+          { label: 'This yr', value: 39, current: true },
+        ],
+      },
+      takeaways: [
+        { title: 'Run budgets on MER, not platform ROAS', body: 'Meta and Google each claim the same orders. Store sales against total spend can’t be double counted.' },
+        { title: 'Scale as fast as MER allows, and no faster', body: 'Spend rose this year because MER barely moved. When it starts to fall, spend stops rising.' },
+        { title: 'Put real money behind your biggest day', body: 'The Members Sale went from almost no ad support to a full launch, and its first day nearly quadrupled.' },
+        { title: 'Re-test new ad products', body: 'Performance Max took most of the Google budget for a while. Standard Shopping now runs the catalog.' },
+      ],
+      measured: [
+        'Sales are Shopify total sales across every Veiled sales channel.',
+        'Ad spend is Meta plus Google Ads spend, from each platform’s API.',
+        'MER is Shopify total sales divided by total ad spend. It counts every sale, not only the ones an ad platform claims.',
+        'The starting point is the twelve months before our first campaigns. Year-to-date comparisons use the same dates in both years.',
+        'Results observed while we ran Veiled’s ads, alongside Veiled’s own team, products, email and creative. None is from a holdout test.',
+      ],
     },
     {
-      brand: 'Harbor & Pine',
-      category: 'Home goods · Shopify',
-      stat: '$64 → $81',
-      statLabel: 'average order value',
-      title: 'Bundles that showed up as winners, not just good ROAS.',
-      body: 'Ranking every ad by purchases and cost per purchase surfaced the bundle creatives. Scaling them lifted AOV without raising spend.',
-      platforms: ['Meta', 'TikTok', 'Klaviyo'],
-    },
-    {
-      brand: 'Fieldwork Agency',
-      category: 'Paid media agency · 14 stores',
-      stat: '2 days → 20 min',
-      statLabel: 'weekly client reporting',
-      title: 'Fourteen client stores, one login, one set of definitions.',
-      body: 'Numbers now match what each client sees in Shopify, so calls are about what to do next instead of whose dashboard is right.',
-      platforms: ['Meta', 'TikTok', 'Google Ads', 'Shopify'],
+      slug: 'first-stop-fashion',
+      brand: 'First Stop Fashion',
+      category: 'Streetwear retail · New York · Shopify + POS',
+      channels: ['Meta'],
+      headline: 'Growing a New York streetwear retailer online, alongside its stores.',
+      summary: 'First Stop Fashion (FSF NYC) sells streetwear in its New York stores and online through its website, a Facebook Shop, a mobile app, an international checkout and TikTok, all on Shopify. Push Analytics runs its Meta advertising and judges every step on online sales, reported separately from the stores.',
+      kpis: [
+        { value: '+694%', label: 'online sales vs. the year before we started' },
+        { value: '20% → 58%', label: 'online share of total sales' },
+        { value: '+13%', label: 'store sales over the same period' },
+      ],
+      start: {
+        title: 'Where FSF started',
+        body: 'Most of FSF’s sales happened in its stores, and online was a fifth of the business. On Meta, FSF had only ever boosted posts and promoted its page.',
+        points: ['Online was a fifth of sales', 'Only boosted posts on Meta', 'One online storefront'],
+      },
+      phases: [
+        { title: 'From setup to Black Friday in weeks', body: 'The first campaign launched for a new product release, followed by a conversion-optimized funnel and a full-funnel campaign for a single hero product. Daily reports started right away, and FSF ran its first Black Friday sale and retargeting campaigns.' },
+        { title: 'More places to buy', body: 'FSF went from one online storefront to four: the website, a mobile app, a Facebook Shop and an international checkout. Online sales nearly doubled in the first full year.' },
+        { title: 'Scaling Meta by product line', body: 'Budget grew step by step, with campaigns built around FSF’s product lines and drops, each linked to the matching collection. Catalog ads show live prices, and reels from FSF’s own Instagram run as ads, keeping their likes and comments.' },
+        { title: 'Online judged on its own', body: 'Every step up in budget is judged on online MER: online sales against Meta spend. Store sales are reported separately, so a strong week in the stores can’t hide a weak week online.' },
+      ],
+      highlights: [
+        { value: '+694%', title: 'Online sales growth', body: 'The latest full year against the year before we started. The first year alone grew 154%.' },
+        { value: '+13%', title: 'The stores grew too', body: 'Online rose from 20% to 58% of sales, but not at the stores’ expense: store sales reached their best year in the period.' },
+        { value: '+101%', title: 'Online doubled as Meta scaled', body: 'Online sales doubled in the year Meta spend stepped up, and the extra spend still came back at a healthy multiple.' },
+        { value: '+103%', title: 'New channels became real', body: 'Facebook Shop sales doubled over three years, and international orders are up 87% this year.' },
+      ],
+      growth: {
+        label: 'Online sales, year over year',
+        note: 'Each bar is growth on the year before. The last bar is this year to date.',
+        bars: [
+          { label: 'Yr 1', value: 95 },
+          { label: 'Yr 2', value: 1 },
+          { label: 'Yr 3', value: 29 },
+          { label: 'Yr 4', value: 12 },
+          { label: 'Yr 5', value: 101 },
+          { label: 'This yr', value: 38, current: true },
+        ],
+      },
+      takeaways: [
+        { title: 'Report online and stores separately', body: 'A strong store week can hide a weak online week. FSF judges ads on online sales, then looks at the total.' },
+        { title: 'Advertise product lines, not just the store', body: 'Campaigns follow FSF’s drops and lines, each linked to the matching collection.' },
+        { title: 'Let people buy where they scroll', body: 'The Facebook Shop grew into one of FSF’s biggest storefronts.' },
+        { title: 'Decide how far MER can fall before you scale', body: 'Online MER eased as spend grew, which is expected. The extra spend still paid back.' },
+      ],
+      measured: [
+        'Online sales are Shopify total sales from the website, Facebook Shop, mobile app, international checkout and TikTok. Draft and wholesale orders are excluded.',
+        'Store sales are Shopify POS total sales from FSF’s New York stores.',
+        'The starting point is the twelve months before our first campaign. Store comparisons start from the first full year, because the starting year included the spring store closures.',
+        'Online MER is online sales divided by Meta ad spend.',
+        'Results observed while we ran FSF’s ads, alongside FSF’s own team, products, stores and promotions. None is from a holdout test.',
+      ],
     },
   ],
   measure: {
