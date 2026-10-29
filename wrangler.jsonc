@@ -4,6 +4,10 @@
   "main": "worker/index.js",
   "compatibility_date": "2026-10-01",
   "workers_dev": true,
+  // Request-access form: emails each submission (POST /api/access). The recipient must be a
+  // verified Email Routing address, and pushnexus.ai must be onboarded under Email Sending.
+  "send_email": [{ "name": "EMAIL", "destination_address": "hamdy@pushanalytics.com" }],
+  "observability": { "enabled": true },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

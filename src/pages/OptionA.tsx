@@ -3,7 +3,7 @@ import { DashboardMock } from '../components/DashboardMock'
 import { Glass } from '../components/Glass'
 import { CountUp } from '../components/CountUp'
 import { Icon } from '../components/Icons'
-import { AISection, Contrast, HowItWorks, MethodCards, Numbers, ViewShowcase, WhoCards } from '../components/Sections'
+import { AISection, Contrast, HowItWorks, InlineAccess, MethodCards, Numbers, ViewShowcase, WhoCards } from '../components/Sections'
 import { closing, hero, positioning } from '../content'
 import { Gradient, Nexus } from '../three/Lazy'
 
@@ -73,9 +73,9 @@ export default function OptionA() {
             <h2 className="h2">{closing.title}</h2>
             <p className="lede">{closing.lede}</p>
           </Reveal>
-          <a className="btn btn-primary btn-lg" href="mailto:hello@pushnexus.ai?subject=Request%20access">
-            {hero.primary} <Icon name="arrow" className="arrow" width={16} height={16} />
-          </a>
+          <div style={{ width: 'min(520px, 100%)' }}>
+            <InlineAccess dark id="a-access" />
+          </div>
         </div>
       </section>
 

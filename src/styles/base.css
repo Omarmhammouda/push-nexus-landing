@@ -289,3 +289,10 @@ select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csv
 .countup { position: relative; display: inline-grid; font-variant-numeric: tabular-nums; }
 .countup > .countup-ghost, .countup > .countup-live { grid-area: 1 / 1; }
 .countup-ghost { visibility: hidden; }
+
+/* ---------- form states ---------- */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-error { margin: 10px 4px 2px; font-size: 13.5px; line-height: 1.5; color: var(--down); text-align: left; }
+.form-error a { color: inherit; text-decoration: underline; }
+.cta-dark .form-error, .theme-dark .form-error { color: #fca5a5; }
+.btn[disabled] { opacity: .7; cursor: progress; }

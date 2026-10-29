@@ -1,5 +1,6 @@
 import { GlassLoupe } from '@liquidglassjs/react'
 import { useState, type FormEvent } from 'react'
+import { FALLBACK_EMAIL, sendAccessRequest } from '../lib/access'
 import { Glass } from './Glass'
 import { Icon, type IconName } from './Icons'
 import { Reveal, SmartLink, TrustNote } from './Chrome'
@@ -375,28 +376,57 @@ export function Security() {
 }
 
 /* ---------------- Access forms ---------------- */
+type Status = 'idle' | 'sending' | 'sent' | 'error'
+
+function FormError() {
+  return (
+    <p className="form-error" role="alert">
+      That didn’t go through. Please try again, or email <a href={`mailto:${FALLBACK_EMAIL}?subject=Push%20Nexus%20access`}>{FALLBACK_EMAIL}</a>.
+    </p>
+  )
+}
+
+/** Hidden field bots fill in and people don't. */
+function Honeypot() {
+  return (
+    <div aria-hidden="true" className="hp">
+      <label>
+        Company website
+        <input name="company_website" tabIndex={-1} autoComplete="off" />
+      </label>
+    </div>
+  )
+}
+
 export function InlineAccess({ dark = false, id }: { dark?: boolean; id?: string }) {
-  const [sent, setSent] = useState(false)
-  const submit = (e: FormEvent) => {
+  const [status, setStatus] = useState<Status>('idle')
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSent(true)
+    const f = new FormData(e.currentTarget)
+    setStatus('sending')
+    const r = await sendAccessRequest({ email: String(f.get('email') ?? ''), company_website: String(f.get('company_website') ?? '') })
+    setStatus(r.ok ? 'sent' : 'error')
   }
   return (
     <Glass className="inline-access" radius={14} strength={20} tint={dark ? 30 : 60} blur={4} depth={12}>
-      {sent ? (
+      {status === 'sent' ? (
         <div className="sent" role="status">
           <Icon name="shield" /> Thanks. We will get you connected.
         </div>
       ) : (
-        <form onSubmit={submit} className="inline-access-form" id={id}>
-          <label className="sr-only" htmlFor={`${id ?? 'ia'}-email`}>
-            Work email
-          </label>
-          <input id={`${id ?? 'ia'}-email`} className="field field--bare" type="email" required placeholder="you@yourbrand.com" autoComplete="email" />
-          <button className="btn btn-primary btn-lg" type="submit">
-            {hero.primary}
-          </button>
-        </form>
+        <>
+          <form onSubmit={submit} className="inline-access-form" id={id}>
+            <label className="sr-only" htmlFor={`${id ?? 'ia'}-email`}>
+              Work email
+            </label>
+            <input id={`${id ?? 'ia'}-email`} name="email" className="field field--bare" type="email" required placeholder="you@yourbrand.com" autoComplete="email" />
+            <Honeypot />
+            <button className="btn btn-primary btn-lg" type="submit" disabled={status === 'sending'}>
+              {status === 'sending' ? 'Sending…' : hero.primary}
+            </button>
+          </form>
+          {status === 'error' && <FormError />}
+        </>
       )}
     </Glass>
   )
@@ -404,12 +434,22 @@ export function InlineAccess({ dark = false, id }: { dark?: boolean; id?: string
 
 export function AccessCard() {
   const [picked, setPicked] = useState<string[]>(['Meta', 'Shopify'])
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
   const toggle = (p: string) => setPicked((x) => (x.includes(p) ? x.filter((y) => y !== p) : [...x, p]))
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSent(true)
+    const f = new FormData(e.currentTarget)
+    setStatus('sending')
+    const r = await sendAccessRequest({
+      name: String(f.get('name') ?? ''),
+      email: String(f.get('email') ?? ''),
+      store: String(f.get('store') ?? ''),
+      platforms: picked,
+      company_website: String(f.get('company_website') ?? ''),
+    })
+    setStatus(r.ok ? 'sent' : 'error')
   }
+  const sent = status === 'sent'
   return (
     <Glass className="access-card" radius={22} strength={22} chroma={0.35} tint={62} blur={10} depth={18}>
       <div className="access-inner" id="access">
@@ -431,9 +471,10 @@ export function AccessCard() {
               </h3>
               <p className="body">{closing.lede}</p>
             </div>
-            <input className="field" required placeholder="Full name" autoComplete="name" aria-label="Full name" />
-            <input className="field" type="email" required placeholder="Work email" autoComplete="email" aria-label="Work email" />
-            <input className="field" placeholder="Store URL" aria-label="Store URL" />
+            <input className="field" name="name" required placeholder="Full name" autoComplete="name" aria-label="Full name" />
+            <input className="field" name="email" type="email" required placeholder="Work email" autoComplete="email" aria-label="Work email" />
+            <input className="field" name="store" placeholder="Store URL" aria-label="Store URL" />
+            <Honeypot />
             <fieldset className="pick">
               <legend>Platforms you run</legend>
               <div className="pick-chips">
@@ -450,9 +491,10 @@ export function AccessCard() {
                 ))}
               </div>
             </fieldset>
-            <button className="btn btn-primary btn-lg btn-block" type="submit">
-              {hero.primary}
+            <button className="btn btn-primary btn-lg btn-block" type="submit" disabled={status === 'sending'}>
+              {status === 'sending' ? 'Sending…' : hero.primary}
             </button>
+            {status === 'error' && <FormError />}
             <TrustNote>{hero.trust}</TrustNote>
           </form>
         )}
