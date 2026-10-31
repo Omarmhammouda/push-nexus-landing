@@ -6,9 +6,9 @@ export const hero = {
   titleLead: 'Built the way a good ecommerce business',
   titleAccent: 'actually gets run.',
   lede:
-    'We’ve spent years running paid media for Shopify brands, and Push Nexus is the tool we built for ourselves. It ranks your ads the way we would, tracks you against a monthly target, and shows you first thing each day where the money’s working and where it isn’t. That way you can move budget now instead of three weeks later.',
+    'We’ve spent years running paid media for Shopify brands, and Push Nexus is the tool we built for ourselves. It ranks your ads the way we would, tracks you against a monthly target, and tells you each morning where the money’s working and where it isn’t, so you can move budget while it still matters.',
   ledeShort:
-    'It ranks your ads the way we would, tracks you against a monthly target, and shows you first thing each day where the money’s working and where it isn’t.',
+    'It ranks your ads the way we would, tracks you against a monthly target, and tells you each morning where the money’s working and where it isn’t.',
   trust: "Read-only access through each platform’s official login. Disconnect anytime.",
   category: 'The AI operating system for ecommerce',
   primary: 'Request access',
@@ -30,14 +30,14 @@ export const positioning = {
     titleLead: 'The brain behind your',
     titleAccent: 'Shopify store.',
     lede:
-      'Overnight, Push Nexus AI goes through every channel you run, ranks your ads by what they actually sell and checks how you’re tracking against target. By the time you’re up, there’s a short brief waiting with what to change today.',
+      'While you sleep, Push Nexus AI checks every channel you run, ranks your ads by what they actually sell and sees how you’re pacing against target. In the morning there’s a short brief telling you what to change.',
   },
   c: {
     eyebrow: 'For Shopify brands and the agencies that run them',
     titleLead: 'One brain for every',
     titleAccent: 'store you run.',
     lede:
-      'Whether you run one store or twenty, Push Nexus connects every platform, uses one set of definitions everywhere, and sends a short AI-written brief for each store before your day starts.',
+      'Connect your platforms once and Push Nexus measures every store the same way. Each morning there’s a short AI-written brief for every store, whether you look after one or twenty.',
   },
 }
 
@@ -57,7 +57,7 @@ export const contrast = {
   after: {
     label: 'With Push Nexus',
     points: [
-      'One view with three numbers you can trust: MER, conversion rate and AOV',
+      'MER, conversion rate and AOV on one screen, worked out the same way every time',
       'Knowing whether you’re ahead or behind target, every day',
       'Ads ranked by purchases and cost per purchase',
       'A short brief each morning telling you what to change',
@@ -70,14 +70,14 @@ export const ai = {
   kicker: 'Push Nexus AI',
   title: 'An AI analyst that goes through your store overnight.',
   lede:
-    'Overnight it reads every channel, ad and order, figures out what changed and why, and writes up what it would do today. It’s waiting for you when you open your laptop.',
+    'Every night it looks at your channels, ads and orders, works out what changed, and writes down what it would do today. It’s ready before you start work.',
   capabilities: [
-    { icon: 'sun', title: 'Writes your morning brief', body: 'A plain-English recap of yesterday: what sold, what it cost and what moved the numbers.' },
+    { icon: 'sun', title: 'Writes your morning brief', body: 'A short recap of what sold yesterday, what it cost and why the numbers moved, written the way you’d explain it to a colleague.' },
     { icon: 'compare', title: 'Explains what changed', body: 'If MER, conversion rate or AOV moves, it tracks down the channel, country or ad behind it.' },
-    { icon: 'rank', title: 'Catches winners and losers early', body: 'It flags the ads worth scaling and the ones quietly eating budget, before you’ve lost a week.' },
+    { icon: 'rank', title: 'Catches winners and losers early', body: 'It points out which ads deserve more budget and which ones are wasting it, before another week goes by.' },
     { icon: 'target', title: 'Suggests today’s changes', body: 'Where to add spend, where to cut back and by how much, based on your monthly target.' },
   ] as const,
-  human: 'The AI does the reading, an operator double-checks it, and you decide what to do.',
+  human: 'The AI reads the numbers and one of our operators checks its work. What you do with it is up to you.',
   brief: {
     stamp: 'Morning brief · 7:02 AM',
     lines: [
@@ -115,7 +115,7 @@ export const method = {
   kicker: 'The method',
   title: 'It works the way a good media buyer does.',
   lede:
-    'After years of running paid media for ecommerce brands, three habits kept making the biggest difference. Push Nexus does all three for you, across every channel, every day.',
+    'We’ve run paid media for ecommerce brands for years, and three habits made more difference than anything else. Push Nexus does all three for you, on every channel.',
   habits: [
     {
       title: 'Rank ads by what they sell',
@@ -132,10 +132,10 @@ export const method = {
       view: 'dashboard' as const,
     },
     {
-      title: 'Act on efficiency the same day',
+      title: 'Adjust spend the same day',
       body:
         'When blended MER is above target, you have room to spend more today. When it drops below, it’s time to pull back. Push Nexus shows you which one it is each morning, so you can adjust right away instead of waiting for the monthly review.',
-      short: 'MER above target means you can spend more today. Below target means pull back. You’ll know which first thing.',
+      short: 'MER above target means you can spend more today. Below target means pull back. Push Nexus tells you which each morning.',
       view: 'snapshot' as const,
     },
   ],
@@ -180,7 +180,7 @@ export const viewsHead = {
 
 export const numbers = {
   kicker: 'The numbers',
-  title: 'One set of numbers everyone agrees on.',
+  title: 'Numbers that actually add up.',
   lede: 'Every ad platform reports its own results, and they never add up. Push Nexus measures everything against your total sales and total spend, using three numbers that explain almost any change in revenue.',
   metrics: [
     { name: 'MER', formula: 'Sales ÷ Total spend', value: '4.82x', body: 'How efficient your marketing is across every platform combined. Higher is better, and it counts all of your spend.' },
@@ -191,23 +191,23 @@ export const numbers = {
 
 export const product = {
   kicker: 'Product',
-  title: 'Everything you need, without the clutter.',
-  lede: 'One date filter controls every view, you can pick any date range, and the definitions are the same on every screen.',
+  title: 'The features we use every day.',
+  lede: 'Pick a date range once and every view follows it. MER means the same thing on every screen.',
   features: [
     { title: 'Sales channel selector', body: 'Choose which Shopify channels to include. Traffic and spend stay the same, so MER and conversion rate reflect what’s happening on your site.', icon: 'channels' },
     { title: 'Compare any period', body: 'Break results down by day, week, month or year, and compare them with the previous period or the same dates last year.', icon: 'compare' },
     { title: 'Content performance', body: 'All your ads from Meta, TikTok and Klaviyo in one grid, ranked by purchases and cost per purchase.', icon: 'grid' },
     { title: 'Countries', body: "Sales, orders, traffic and spend broken down by where buyers are, so you can see which markets are worth the money.", icon: 'globe' },
     { title: 'Email and SMS', body: 'Klaviyo campaign and flow revenue right next to your ad spend, rather than in a tab you forget about.', icon: 'mail' },
-    { title: 'Secure by design', body: 'Official sign-in on every platform, read-only access and no stored passwords. Disconnect a source and its access is removed.', icon: 'lock' },
-    { title: 'Every source, one status', body: 'See every connection and when it last synced. You can also send in daily numbers from Pinterest, Snapchat or anything else.', icon: 'sync' },
-    { title: 'Targets and pacing', body: 'Set monthly targets in plain terms, including separate targets for promo days. The first thing you see is whether you’re ahead or behind.', icon: 'target' },
+    { title: 'Safe to connect', body: 'Official sign-in on every platform, read-only access and no stored passwords. Disconnect a source and its access is removed.', icon: 'lock' },
+    { title: 'Connection status', body: 'See every connection and when it last synced. You can also send in daily numbers from Pinterest, Snapchat or anything else.', icon: 'sync' },
+    { title: 'Targets and pacing', body: 'Set monthly targets in plain terms, including separate targets for promo days. The dashboard opens on whether you’re ahead or behind.', icon: 'target' },
   ] as const,
 }
 
 export const how = {
   kicker: 'How it works',
-  title: 'Set up in an afternoon. Useful by the next morning.',
+  title: 'Set it up this afternoon and use it tomorrow morning.',
   steps: [
     { n: '01', title: 'Connect', body: 'Log in to each platform with its own sign-in and choose the ad accounts, store and analytics property you want to include.' },
     { n: '02', title: 'Sync', body: 'Push Nexus pulls in daily spend, sales, orders and sessions from every source, keeps them up to date and fills in your history.' },
@@ -222,7 +222,7 @@ export const who = {
     {
       key: 'brands',
       title: 'Shopify brands',
-      lead: 'Founders and marketing leads who want a straight answer on how the business is doing.',
+      lead: 'Founders and marketing leads who want to know how the business is really doing, without digging for it.',
       points: [
         'Blended MER and conversion rate without building a spreadsheet',
         'Separate views for stores that also sell on TikTok Shop or in person',
@@ -235,7 +235,7 @@ export const who = {
       title: 'Agencies',
       lead: 'Teams running paid media for several stores at the same time.',
       points: [
-        'All your client stores under one login, measured the same way',
+        'Every client store under one login',
         'Any date range compared with last period or last year in a few seconds',
         'Numbers that line up with what clients see in Shopify',
       ],
@@ -246,7 +246,7 @@ export const who = {
 
 export const pacing = {
   kicker: 'Targets and pacing',
-  title: 'Ahead or behind is the first thing you see.',
+  title: 'You’ll know right away if you’re ahead or behind.',
   body: 'If MER is above target, you’ve got budget to spend. If it’s below, it’s time to pull back. Either way you’ll know the next morning, not at the end of the month.',
   monthTarget: '$820,000',
   monthToDate: '$412,380',
@@ -302,9 +302,9 @@ export const results: {
 } = {
   hero: {
     eyebrow: 'Results',
-    titleLead: 'Real brands, real results,',
-    titleAccent: 'measured the same way.',
-    lede: 'How the team behind Push Nexus helped grow two very different fashion brands by basing every budget decision on total store sales instead of what each ad platform says.',
+    titleLead: 'How two fashion brands',
+    titleAccent: 'grew with us.',
+    lede: 'Two very different fashion brands, with ads run by Push Analytics, the team behind Push Nexus. For both, every budget decision is based on total store sales, not on what each ad platform reports.',
     note: 'To protect our clients, we only show results as percentages. Every figure comes from Shopify and the ad platforms.',
   },
   caseStudies: [
@@ -327,14 +327,14 @@ export const results: {
       },
       phases: [
         { title: 'From kickoff to a full funnel', body: 'The first campaigns went live for Veiled’s Eid sale, with daily reporting from day one. Audiences were split into cold, warm and hot groups so each saw its own message, Google Search and Shopping launched that autumn, and a VIP list was built ahead of Black Friday.' },
-        { title: 'Two years of tripling', body: 'Each of the first two full years with Push Analytics more than tripled sales, as Meta scaled and Google grew into a real second channel across Search and Shopping.' },
+        { title: 'Two big years', body: 'Each of the first two full years with Push Analytics more than tripled sales, as Meta scaled and Google grew into a real second channel across Search and Shopping.' },
         { title: 'Testing Performance Max, then moving back', body: 'When Google released Performance Max, most of the Google budget moved into it. Over time it moved back to standard Shopping and Search for control over which products and searches get budget. Shopping is now the largest Google line.' },
-        { title: 'One number for every budget call', body: 'Every decision is judged on blended MER, read every day. A daily report compares the previous day to target, says what moved and why, and lists the changes being made. Meta runs Advantage+ by country plus catalog and creator partnership ads; Google covers brand, Shopping and category search.' },
-        { title: 'The Members Sale', body: 'Veiled’s biggest event of the year went from almost no ad support to a full launch across every market: new campaigns built from Veiled’s own sale creative and creator videos, with Google budgets raised for the weekend. Budgets were reset every night from that day’s sales, stepping down as demand cooled.' },
+        { title: 'Every budget call runs on MER', body: 'Every decision is judged on blended MER, read every day. A daily report compares the previous day to target, says what moved and why, and lists the changes being made. Meta runs Advantage+ by country plus catalog and creator partnership ads; Google covers brand, Shopping and category search.' },
+        { title: 'The Members Sale', body: 'Veiled’s biggest event of the year went from almost no ad support to a full launch across every market: new campaigns built from Veiled’s own sale creative and creator videos, with Google budgets raised for the weekend. Budgets were reset every night based on that day’s sales and came down as demand slowed.' },
       ],
       highlights: [
         { value: '+6,130%', title: 'Sales growth since we started', body: 'Comparing the latest full year with the year before Push Analytics took over the ads.' },
-        { value: '+39% / +41%', title: 'Sales vs. spend this year', body: 'Ad spend rose about as fast as sales, and MER moved by just one percent. The extra spend paid back at the same rate as the existing spend.' },
+        { value: '+39% / +41%', title: 'Sales vs. spend this year', body: 'Ad spend rose about as fast as sales, and MER moved by just one percent. The extra money earned back about as much as the rest of the budget.' },
         { value: '+297%', title: 'Members Sale, first day', body: 'Year over year, with average order value up 25% and the first four days up 157%.' },
         { value: '68%', title: 'Orders from returning customers', body: 'Up from 41% before we started, while new-customer orders still grew more than twentyfold.' },
       ],
@@ -355,7 +355,7 @@ export const results: {
         { title: 'Base budgets on MER, not platform ROAS', body: 'Meta and Google both take credit for the same orders. Total store sales divided by total spend can’t be double counted.' },
         { title: 'Scale only as fast as MER allows', body: 'Spend went up this year because MER held steady. If it starts dropping, spend stops going up.' },
         { title: 'Back your biggest day properly', body: 'The Members Sale went from almost no ad support to a full launch, and its first day nearly quadrupled.' },
-        { title: 'Give new ad products a second look', body: 'Performance Max took over most of the Google budget for a while. Standard Shopping runs the catalog now.' },
+        { title: 'Don’t set and forget new ad products', body: 'Performance Max took over most of the Google budget for a while. Standard Shopping runs the catalog now.' },
       ],
       measured: [
         'Sales are Shopify total sales across every Veiled sales channel.',
@@ -391,8 +391,8 @@ export const results: {
       highlights: [
         { value: '+694%', title: 'Online sales growth', body: 'The latest full year against the year before we started. The first year alone grew 154%.' },
         { value: '+13%', title: 'The stores grew too', body: 'Online rose from 20% to 58% of sales, but not at the stores’ expense: store sales reached their best year in the period.' },
-        { value: '+101%', title: 'Online doubled as Meta scaled', body: 'Online sales doubled in the year Meta spend stepped up, and the extra spend still came back at a healthy multiple.' },
-        { value: '+103%', title: 'New channels became real', body: 'Facebook Shop sales doubled over three years, and international orders are up 87% this year.' },
+        { value: '+101%', title: 'Online doubled as Meta scaled', body: 'Online sales doubled in the year Meta spend stepped up, and the extra spend still more than paid for itself.' },
+        { value: '+103%', title: 'New storefronts took off', body: 'Facebook Shop sales doubled over three years, and international orders are up 87% this year.' },
       ],
       growth: {
         label: 'Online sales, year over year',
@@ -441,7 +441,7 @@ export const pages = {
   product: {
     hero: {
       eyebrow: 'Product',
-      titleLead: 'Every channel in one place,',
+      titleLead: 'All your channels in one place,',
       titleAccent: 'measured the same way.',
       lede: 'Push Nexus brings Meta, TikTok, Google Ads, GA4, Shopify and Klaviyo into one dashboard. The definitions are the same on every screen, and one date filter updates everything.',
     },
@@ -473,21 +473,21 @@ export const pages = {
       eyebrow: 'Push Nexus AI',
       titleLead: 'Your numbers, already read',
       titleAccent: 'before you start your day.',
-      lede: 'Push Nexus AI goes through every channel, ad and order overnight, explains what changed and why, and suggests what to do today. One of our operators reviews it before you see it.',
+      lede: 'Each night it reads yesterday’s numbers from every channel, explains what changed and why, and suggests what to do today. One of our operators checks it before you see it.',
     },
     flow: {
       kicker: 'How the brief gets made',
-      title: 'From raw numbers to a clear plan for the day.',
+      title: 'What happens between midnight and your morning coffee.',
       steps: [
         { n: '01', title: 'Read', body: 'Overnight, it pulls in yesterday’s spend, sales, orders, sessions and ad results from every connected source.' },
         { n: '02', title: 'Explain', body: 'It compares the day with your target and works out which channel, country or ad caused any change in MER, conversion rate or AOV.' },
         { n: '03', title: 'Recommend', body: 'It suggests what to change today: where to spend more, where to cut back, and which ads to scale or pause.' },
-        { n: '04', title: 'Review', body: 'An operator reads it over before it’s sent, so a real person has checked every recommendation.' },
+        { n: '04', title: 'Review', body: 'One of our operators reads it before it goes out, so a person has looked at every suggestion.' },
       ],
     },
     guardrails: {
       kicker: 'What it won’t do',
-      title: 'It makes suggestions. You make the decisions.',
+      title: 'It can suggest changes, but only you can make them.',
       items: [
         { title: 'Read-only', body: 'Push Nexus can read your numbers, but it can’t change your ads, store or campaigns.' },
         { title: 'Reviewed by a person', body: 'Every brief is checked by an operator before it goes out.' },
@@ -499,8 +499,8 @@ export const pages = {
     hero: {
       eyebrow: 'The method',
       titleLead: 'Three habits that grow revenue,',
-      titleAccent: 'built into your daily routine.',
-      lede: 'After years of running paid media for Shopify brands, it came down to three habits. Push Nexus keeps up with all three for you, across every channel.',
+      titleAccent: 'done for you every day.',
+      lede: 'Years of running ads for Shopify brands taught us that three habits matter most. Push Nexus keeps up with them so you don’t have to.',
     },
     habits: [
       {
@@ -532,8 +532,8 @@ export const pages = {
   how: {
     hero: {
       eyebrow: 'How it works',
-      titleLead: 'Set up in an afternoon.',
-      titleAccent: 'Useful by the next morning.',
+      titleLead: 'Set it up this afternoon,',
+      titleAccent: 'use it tomorrow morning.',
       lede: 'Log in to each platform, choose the accounts you want, and Push Nexus takes it from there. Your data syncs daily and your history is filled in automatically.',
     },
     faq: {
@@ -552,13 +552,13 @@ export const pages = {
   who: {
     hero: {
       eyebrow: "Who it's for",
-      titleLead: 'Made for the people',
-      titleAccent: 'responsible for the numbers.',
+      titleLead: 'For whoever has to answer',
+      titleAccent: 'for the numbers.',
       lede: 'Shopify brands that want a clear picture of how the business is doing, and the agencies that run their ads.',
     },
     morning: [
       { audience: 'brands', kicker: 'A morning for a brand', title: 'One look tells you if today needs anything.', body: 'Open the dashboard and you’ll see straight away whether you’re ahead or behind target. The daily snapshot explains what changed, and today’s suggestions are already there.' },
-      { audience: 'agencies', kicker: 'A morning for an agency', title: 'All your clients, one login, one set of definitions.', body: 'Switch between client stores without rebuilding reports. Compare any date range with last period or last year in seconds, using numbers that match what each client sees in Shopify.' },
+      { audience: 'agencies', kicker: 'A morning for an agency', title: 'Check every client before your first call.', body: 'Switch between client stores without rebuilding reports. Compare any date range with last period or last year in seconds, using numbers that match what each client sees in Shopify.' },
     ],
   },
 }
