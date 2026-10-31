@@ -358,7 +358,7 @@ export function Security() {
   return (
     <section className="section">
       <div className="container" style={{ display: 'grid', gap: 48 }}>
-        <SectionHead kicker="Secure by design" title="Your data stays yours." center />
+        <SectionHead kicker="Security" title="Your data stays under your control." center />
         <div className="grid-3">
           {security.map((s, i) => (
             <Reveal key={s.title} delay={i * 90} className="card">
